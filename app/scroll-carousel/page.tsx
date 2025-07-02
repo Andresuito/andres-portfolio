@@ -1,4 +1,4 @@
-import ScrollRotationSection from "@/app/components/scroll-rotation-section";
+import ScrollRotationSection from "@/components/scroll-rotation-section";
 import Link from "next/link";
 
 export default function ScrollCarousel() {

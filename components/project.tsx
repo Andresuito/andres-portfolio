@@ -1,0 +1,54 @@
+import { ArrowIcon } from "./arrow-icon";
+
+export function Projects() {
+  return (
+    <section className="projects-section">
+      <header>
+        <h2 className="font-semibold text-lg animate-item">Projects</h2>
+      </header>
+
+      <ProjectItem
+        title="ggsalt"
+        description="Desing portfolio website"
+        type="Portfolio"
+        url="https://www.ggsalt.work"
+      />
+      <ProjectItem
+        title="KGLS"
+        description="Architecture portfolio website"
+        type="Portfolio"
+        url="https://www.kristinesalting.com"
+      />
+    </section>
+  );
+}
+
+interface ProjectItemProps {
+  title: string;
+  description: string;
+  type: string;
+  url: string;
+}
+
+function ProjectItem({ title, description, type, url }: ProjectItemProps) {
+  return (
+    <article className="flex mt-5 justify-between items-center animate-item">
+      <a
+        className="group flex items-center hover:translate-x-3 transition duration-150"
+        target="_blank"
+        href={url}
+      >
+        <p className="text-lg">{title}</p>
+        <ArrowIcon />
+        <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+          {description}
+        </span>
+      </a>
+      <div className="flex items-center">
+        <div className="relative group inline-block text-base text-black">
+          {type}
+        </div>
+      </div>
+    </article>
+  );
+}

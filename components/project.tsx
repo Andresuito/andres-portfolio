@@ -9,7 +9,7 @@ export function Projects() {
 
       <ProjectItem
         title="ggsalt"
-        description="Desing portfolio website"
+        description="Design portfolio website"
         type="Portfolio"
         url="https://www.ggsalt.work"
       />

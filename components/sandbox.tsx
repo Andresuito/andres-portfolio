@@ -17,9 +17,27 @@ export function Sandbox() {
           <p className="text-lg">Scroll carousel</p>
           <ArrowIcon />
         </Link>
+
         <div className="flex items-center">
           <div className="relative group inline-block text-base text-black">
             GSAP 01
+          </div>
+        </div>
+      </article>
+
+      <article className="flex mt-5 justify-between items-center animate-item">
+        <Link
+          className="group flex items-center hover:translate-x-3 transition duration-150"
+          href="/infinite-slider"
+          prefetch
+        >
+          <p className="text-lg">Infinite Slider</p>
+          <ArrowIcon />
+        </Link>
+
+        <div className="flex items-center">
+          <div className="relative group inline-block text-base text-black">
+            Random
           </div>
         </div>
       </article>

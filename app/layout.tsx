@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 
-const grotesk = Space_Grotesk({
+const lato = Lato({
   weight: "400",
   style: "normal",
   subsets: ["latin"],
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${grotesk.className} bg-[#F0F0F0] relative antialiased scroll-smooth`}
+        className={`${lato.className} bg-[#F0F0F0] relative antialiased scroll-smooth`}
       >
         {children}
       </body>

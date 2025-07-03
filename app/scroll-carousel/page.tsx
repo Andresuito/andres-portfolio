@@ -15,9 +15,12 @@ export default function ScrollCarousel() {
   return (
     <main className="min-h-screen">
       <div className="h-screen grid p-4 grid-cols-3">
-        <div>
-          <Link href="/">Home</Link>
-        </div>
+        <Link href="/">
+          <span className="border-neutral-300 border rounded-full p-2 px-4">
+            Home
+          </span>
+        </Link>
+
         <div className="text-center">
           <p>Scroll down to see the effect</p>
         </div>
@@ -31,7 +34,7 @@ export default function ScrollCarousel() {
             Arc scroll carousel
           </h1>
           <div className="absolute top-5 left-1/2 -translate-x-1/2">
-            <p className="mb-8 /70">Scroll up to see the effect</p>
+            <p className="mb-8">Scroll up to see the effect</p>
           </div>
         </div>
       </section>

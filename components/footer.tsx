@@ -6,7 +6,7 @@ export function Footer() {
           X
         </a>
         <span className="mx-2 animate-item">/</span>
-        <a href="https://www.linkedin.com/in/andrés-br" target="_blank">
+        <a href="https://www.linkedin.com/in/andres-br" target="_blank">
           LinkedIn
         </a>
         <span className="mx-2 animate-item">/</span>

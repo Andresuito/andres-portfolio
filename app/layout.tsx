@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.className} bg-[#F0F0F0] relative antialiased scroll-smooth`}
+        className={`${lato.className} bg-white relative antialiased scroll-smooth`}
       >
         {children}
       </body>

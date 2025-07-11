@@ -3,7 +3,9 @@ import { ArrowIcon } from "./arrow-icon";
 export function Work() {
   return (
     <section className="container mx-auto work-section">
-      <h2 className="font-semibold text-lg animate-item">Work Experience</h2>
+      <h2 className="font-semibold text-lg animate-item bg-black text-white w-fit p-1 px-3">
+        Work Experience
+      </h2>
       <div className="flex flex-col">
         <WorkItem
           company="Vidext"

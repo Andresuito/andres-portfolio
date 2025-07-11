@@ -5,7 +5,9 @@ export function Sandbox() {
   return (
     <section className="projects-section">
       <header>
-        <h2 className="font-semibold text-lg animate-item">Sandbox</h2>
+        <h2 className="font-semibold text-lg animate-item bg-black text-white w-fit p-1 px-3">
+          Sandbox
+        </h2>
       </header>
 
       <article className="flex mt-5 justify-between items-center animate-item">

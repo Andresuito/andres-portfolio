@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const lato = Lato({
   weight: "400",
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={`${lato.className} bg-white relative antialiased scroll-smooth`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function ScrollCarousel() {
   const images = [
-    { src: "/images/image1.jpg", name: "Midnight Gas Station" },
-    { src: "/images/image2.jpg", name: "Urban Relaxation" },
-    { src: "/images/image3.jpg", name: "Flash Café Lights" },
-    { src: "/images/image4.jpg", name: "Neon Istanbul" },
-    { src: "/images/image5.jpg", name: "Smoky Reflections" },
-    { src: "/images/image6.jpg", name: "Neon Muse" },
-    { src: "/images/image7.jpg", name: "Nothing to See Here..." },
+    { src: "/images/image1.png", name: "Minimalist Wooden Chair" },
+    { src: "/images/image2.png", name: "Modern Artistic Chair" },
+    { src: "/images/image3.png", name: "Modern Artistic Furniture" },
+    { src: "/images/image4.png", name: "Modern Lounge Chairs" },
+    { src: "/images/image5.png", name: "Modern Sculptural Chair" },
+    { src: "/images/image6.png", name: "Modern Sculptural Chair" },
+    { src: "/images/image7.png", name: "Sculptural Wooden Chair" },
   ];
 
   return (

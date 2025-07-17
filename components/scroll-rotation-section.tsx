@@ -278,7 +278,7 @@ export default function ScrollRotationSection({
           className="transition-opacity duration-700 opacity-100"
         >
           <p className="text-xs sm:text-sm text-gray-400 font-light">
-            Neons are redefining how we see the world.
+            Essential forms for intentional spaces.
           </p>
           {centerCardName && (
             <p className="text-sm sm:text-base font-light mt-1 transition-all duration-300">

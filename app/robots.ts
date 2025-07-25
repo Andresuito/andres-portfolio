@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: ["/", "/api/og]"],
     },
-    sitemap: `https://${process.env.VERCEL_URL || 'localhost:3000'}/sitemap.xml`,
+    sitemap: "https://andresbr.com/sitemap.xml",
   };
 }

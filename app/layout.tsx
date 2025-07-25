@@ -12,9 +12,7 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Andres B.R",
   description: "Frontend Developer",
-  metadataBase: new URL(
-    `https://${process.env.VERCEL_URL || "localhost:3000"}`
-  ),
+  metadataBase: new URL("https://andresbr.com"),
   alternates: {
     canonical: "/",
   },

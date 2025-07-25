@@ -1,7 +1,7 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 
 const lato = Lato({
   weight: "400",
@@ -12,6 +12,38 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Andres B.R",
   description: "Frontend Developer",
+  metadataBase: new URL(`https://${process.env.VERCEL_URL || 'localhost:3000'}`),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://andresbr.com",
+    title: "Andres B.R",
+    description: "Frontend Developer",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Andres B.R",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Andres B.R",
+    description: "Frontend Developer",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Andres B.R",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

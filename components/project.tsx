@@ -32,22 +32,25 @@ interface ProjectItemProps {
 
 function ProjectItem({ title, description, type, url }: ProjectItemProps) {
   return (
-    <article className="flex mt-5 justify-between items-center animate-item">
+    <article className="flex flex-col sm:flex-row mt-5 sm:justify-between sm:items-center animate-item">
       <a
         className="group flex items-center hover:translate-x-3 transition duration-150"
         target="_blank"
         href={url}
       >
-        <p className="text-lg">{title}</p>
+        <p className="text-base sm:text-lg">{title}</p>
         <ArrowIcon />
-        <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+        <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150 hidden sm:inline">
           {description}
         </span>
       </a>
-      <div className="flex items-center">
-        <div className="relative group inline-block text-base text-black">
+      <div className="flex items-center mt-1 sm:mt-0">
+        <div className="relative group inline-block text-sm sm:text-base text-black">
           {type}
         </div>
+      </div>
+      <div className="sm:hidden mt-1 text-sm text-gray-600">
+        {description}
       </div>
     </article>
   );

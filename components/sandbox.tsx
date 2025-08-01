@@ -10,19 +10,19 @@ export function Sandbox() {
         </h2>
       </header>
 
-      <article className="flex mt-5 justify-between items-center animate-item">
+      <article className="flex flex-col sm:flex-row mt-5 sm:justify-between sm:items-center animate-item">
         <Link
           className="group flex items-center hover:translate-x-3 transition duration-150"
           href="/scroll-carousel"
           prefetch
         >
-          <p className="text-lg">Scroll carousel</p>
+          <p className="text-base sm:text-lg">Scroll carousel</p>
           <ArrowIcon />
         </Link>
 
-        <div className="flex items-center">
-          <div className="relative group inline-block text-base text-black">
-            GSAP 01
+        <div className="flex items-center mt-1 sm:mt-0">
+          <div className="relative group inline-block text-sm sm:text-base text-black">
+            Motion 01
           </div>
         </div>
       </article>

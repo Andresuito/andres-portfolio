@@ -14,27 +14,31 @@ export default function ScrollCarousel() {
 
   return (
     <main className="min-h-screen">
-      <div className="h-screen grid p-4 grid-cols-3">
-        <Link href="/">
-          <span className="border-neutral-300 border rounded-full p-2 px-4">
-            Home
-          </span>
-        </Link>
+      <div className="h-screen grid p-4 grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0">
+        <div className="flex justify-center sm:justify-start items-start">
+          <Link href="/">
+            <span className="border-neutral-300 border rounded-full p-2 px-4 text-sm sm:text-base">
+              Home
+            </span>
+          </Link>
+        </div>
 
         <div className="text-center">
-          <p>Scroll down to see the effect</p>
+          <p className="text-sm sm:text-base">Scroll down to see the effect</p>
         </div>
+        
+        <div className="hidden sm:block"></div>
       </div>
 
       <ScrollRotationSection images={images} />
 
       <section className="h-screen p-4 relative flex items-center justify-center bg-white">
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl  font-semibold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold mb-4">
             Arc scroll carousel
           </h1>
           <div className="absolute top-5 left-1/2 -translate-x-1/2">
-            <p className="mb-8">Scroll up to see the effect</p>
+            <p className="mb-8 text-sm sm:text-base">Scroll up to see the effect</p>
           </div>
         </div>
       </section>

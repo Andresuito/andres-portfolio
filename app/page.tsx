@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <section className="max-w-2xl mx-auto px-2 md:px-8 my-8 lg:my-10">
+    <section className="max-w-2xl mx-auto px-4 sm:px-6 md:px-8 my-6 sm:my-8 lg:my-10">
       <Header />
       <hr className="my-5 sm:my-10 opacity-0" />
       <Work />

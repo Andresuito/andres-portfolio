@@ -33,22 +33,22 @@ interface WorkItemProps {
 
 function WorkItem({ company, role, period, url }: WorkItemProps) {
   return (
-    <div className="flex mt-5 items-center animate-item">
-      <div className="flex items-center justify-between w-full">
+    <div className="flex flex-col sm:flex-row mt-5 sm:items-center animate-item">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full">
         <div className="flex items-center">
           <a
-            className="flex items-center text-lg ml-1 group hover:translate-x-2 transition-transform duration-200"
+            className="flex items-center text-base sm:text-lg ml-1 group hover:translate-x-2 transition-transform duration-200"
             href={url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p className="text-lg flex items-center">
+            <p className="text-base sm:text-lg flex items-center">
               {role} in {company}
               <ArrowIcon />
             </p>
           </a>
         </div>
-        <p className="hidden sm:block text-black">{period}</p>
+        <p className="text-sm sm:text-base text-black mt-1 sm:mt-0 ml-1 sm:ml-0">{period}</p>
       </div>
     </div>
   );

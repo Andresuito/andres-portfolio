@@ -161,7 +161,7 @@ export default function NotificationAnimation() {
       `}</style>
 
       <div className="relative flex flex-col items-center justify-center space-y-4">
-        <div className="flex h-10 relative items-center rounded-lg bg-black shadow px-3 font-medium outline-none hover:bg-gray-800 transition-colors">
+        <div className="flex h-10 relative items-center rounded-lg bg-black shadow px-3 font-medium outline-none transition-colors">
           {notificationCount > 0 && showBadge && (
             <div className="absolute -top-1 -left-1 select-none bg-red-500 text-white text-[10px] rounded-full min-w-[18px] h-4 px-1 flex items-center justify-center badge-enter overflow-hidden">
               <span className={isCountAnimating ? "number-up" : ""}>

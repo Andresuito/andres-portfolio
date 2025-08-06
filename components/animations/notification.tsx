@@ -1,19 +1,30 @@
 "use client";
 
 import { Bell } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function NotificationAnimation() {
   const [notificationCount, setNotificationCount] = useState(0);
   const [showNotification, setShowNotification] = useState(false);
   const [isShaking, setIsShaking] = useState(false);
+  const [showBadge, setShowBadge] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const [isCountAnimating, setIsCountAnimating] = useState(false);
   const [closeTimeoutId, setCloseTimeoutId] = useState<NodeJS.Timeout | null>(
     null
   );
 
   const addNotification = () => {
-    setNotificationCount((prev) => prev + 1);
+    setNotificationCount((prev) => {
+      const newCount = prev + 1;
+      if (newCount > 1 && newCount <= 10) {
+        setIsCountAnimating(true);
+        setTimeout(() => setIsCountAnimating(false), 300);
+      }
+      return newCount;
+    });
+    setShowBadge(true);
+    setIsExiting(false);
 
     if (!isShaking) {
       setIsShaking(true);
@@ -29,7 +40,11 @@ export default function NotificationAnimation() {
     }
 
     const newTimeoutId = setTimeout(() => {
-      setShowNotification(false);
+      setIsExiting(true);
+      setTimeout(() => {
+        setShowNotification(false);
+        setIsExiting(false);
+      }, 350);
       setCloseTimeoutId(null);
     }, 2000);
 
@@ -37,70 +52,149 @@ export default function NotificationAnimation() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center space-y-4">
-      <motion.div
-        className="flex h-10 relative items-center rounded-lg bg-black shadow px-3 font-medium outline-none hover:bg-gray-800 transition-colors fit-content"
-        transition={{
-          width: {
-            duration: 0.35,
-            ease: "easeInOut",
-            delay: showNotification ? 0 : 0.2,
-          },
-        }}
-      >
-        {notificationCount > 0 && (
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            className="absolute -top-1 -left-1 select-none bg-red-500 text-white text-[10px] rounded-full min-w-[18px] h-4 px-1 flex items-center justify-center"
-          >
-            {notificationCount > 9 ? "9+" : notificationCount}
-          </motion.div>
-        )}
-        <div className="relative">
-          <motion.div
-            className="text-white flex-shrink-0"
-            animate={
-              isShaking
-                ? {
-                    rotate: [0, -10, 10, -10, 10, 0],
-                    transition: {
-                      duration: 0.6,
-                      repeat: 0,
-                    },
-                  }
-                : {}
-            }
-          >
-            <Bell size={16} />
-          </motion.div>
-        </div>
+    <>
+      <style jsx>{`
+        .shake {
+          animation: shake 0.6s ease-in-out;
+        }
 
-        <AnimatePresence mode="wait">
+        @keyframes shake {
+          0%,
+          100% {
+            transform: rotate(0deg);
+          }
+          20% {
+            transform: rotate(-10deg);
+          }
+          40% {
+            transform: rotate(10deg);
+          }
+          60% {
+            transform: rotate(-10deg);
+          }
+          80% {
+            transform: rotate(10deg);
+          }
+        }
+
+        .badge-enter {
+          animation: scaleIn 0.2s ease-out forwards;
+          transform: scale(0);
+        }
+
+        @keyframes scaleIn {
+          to {
+            transform: scale(1);
+          }
+        }
+
+        .number-up {
+          animation: flipCounter 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes flipCounter {
+          0% {
+            transform: rotateX(90deg) translateY(50%) scale(0.3);
+            opacity: 0;
+            filter: blur(2px);
+          }
+          25% {
+            transform: rotateX(45deg) translateY(20%) scale(0.7);
+            opacity: 0.3;
+            filter: blur(1px);
+          }
+          50% {
+            transform: rotateX(0deg) translateY(-15%) scale(1.2);
+            opacity: 0.8;
+            filter: blur(0px);
+          }
+          75% {
+            transform: rotateX(-10deg) translateY(-5%) scale(1.05);
+            opacity: 0.95;
+          }
+          100% {
+            transform: rotateX(0deg) translateY(0%) scale(1);
+            opacity: 1;
+          }
+        }
+
+        .text-enter {
+          animation: slideIn 0.35s ease-in-out forwards;
+          opacity: 0;
+          width: 0;
+          margin-left: 0;
+          overflow: hidden;
+        }
+
+        .text-exit {
+          animation: slideOut 0.35s ease-in-out forwards;
+          opacity: 1;
+          width: auto;
+          margin-left: 12px;
+        }
+
+        @keyframes slideIn {
+          0% {
+            opacity: 0;
+            width: 0;
+            margin-left: 0;
+          }
+          100% {
+            opacity: 1;
+            width: 120px;
+            margin-left: 12px;
+          }
+        }
+
+        @keyframes slideOut {
+          0% {
+            opacity: 1;
+            width: 120px;
+            margin-left: 12px;
+          }
+          100% {
+            opacity: 0;
+            width: 0;
+            margin-left: 0;
+          }
+        }
+      `}</style>
+
+      <div className="relative flex flex-col items-center justify-center space-y-4">
+        <div className="flex h-10 relative items-center rounded-lg bg-black shadow px-3 font-medium outline-none hover:bg-gray-800 transition-colors">
+          {notificationCount > 0 && showBadge && (
+            <div className="absolute -top-1 -left-1 select-none bg-red-500 text-white text-[10px] rounded-full min-w-[18px] h-4 px-1 flex items-center justify-center badge-enter overflow-hidden">
+              <span className={isCountAnimating ? "number-up" : ""}>
+                {notificationCount > 9 ? "9+" : notificationCount}
+              </span>
+            </div>
+          )}
+          <div className="relative">
+            <div
+              className={`text-white flex-shrink-0 ${isShaking ? "shake" : ""}`}
+            >
+              <Bell size={16} />
+            </div>
+          </div>
+
           {showNotification && (
-            <motion.span
-              initial={{ opacity: 0, width: 0, marginLeft: 0 }}
-              animate={{ opacity: 1, width: "fit-content", marginLeft: 12 }}
-              exit={{ opacity: 0, width: 0, marginLeft: 0 }}
-              transition={{
-                opacity: { duration: 0.2, ease: "easeInOut" },
-                width: { duration: 0.35, ease: "easeInOut" },
-                marginLeft: { duration: 0.35, ease: "easeInOut" },
-              }}
-              className="text-white select-none text-sm whitespace-nowrap"
+            <span
+              className={`text-white select-none text-sm whitespace-nowrap ${
+                isExiting ? "text-exit" : "text-enter"
+              }`}
             >
               New notification!
-            </motion.span>
+            </span>
           )}
-        </AnimatePresence>
-      </motion.div>
+        </div>
 
-      <button
-        onClick={addNotification}
-        className="px-2 py-1.5 mt-5 border border-neutral-200 rounded-sm text-xs"
-      >
-        Send Notification
-      </button>
-    </div>
+        <button
+          onClick={addNotification}
+          className="px-2 py-1.5 mt-5 border border-neutral-200 rounded-sm text-xs"
+        >
+          Send Notification
+        </button>
+      </div>
+    </>
   );
 }

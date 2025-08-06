@@ -2,6 +2,7 @@
 
 import FeedbackAnimation from "@/components/animations/feedback";
 import NotificationAnimation from "@/components/animations/notification";
+import RippleAnimation from "@/components/animations/ripple";
 import { Navigation } from "@/components/navigation";
 
 export default function AnimationsPage() {
@@ -26,9 +27,9 @@ export default function AnimationsPage() {
           </div>
 
           <div className="flex flex-col space-y-6 h-full">
-            <h2 className="font-light opacity-65">soon</h2>
+            <h2 className="font-light opacity-65">Ripple</h2>
             <div className="w-full flex justify-center py-20 outline outline-neutral-100 bg-neutral-50 flex-1 items-center">
-              <span className="text-neutral-400 text-sm">soon</span>
+              <RippleAnimation />
             </div>
           </div>
         </div>

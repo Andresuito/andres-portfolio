@@ -1,11 +1,13 @@
 "use client";
 
+import { Frown, Meh, Smile } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function FeedbackAnimation() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hasText, setHasText] = useState(false);
+  const [selectedFace, setSelectedFace] = useState<string | null>(null);
 
   return (
     <div className="relative flex items-center justify-center">
@@ -24,12 +26,12 @@ export default function FeedbackAnimation() {
             onClick={() => {
               setIsExpanded(true);
             }}
-            className="relative flex h-10 items-center rounded-lg bg-white shadow px-3 font-medium outline-none hover:bg-gray-50 transition-colors"
+            className="relative flex h-10 items-center rounded-lg shadow px-3 font-medium outline-none"
             layoutId="feedback-container"
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
             <motion.span
-              className="block text-sm text-gray-800"
+              className="block text-sm text-neutral-800 select-none"
               layoutId="feedback-text"
               transition={{ duration: 0.35, ease: "easeInOut" }}
             >
@@ -43,7 +45,7 @@ export default function FeedbackAnimation() {
             <>
               {!hasText && (
                 <motion.h2
-                  className="absolute text-sm text-gray-800 opacity-100 z-40"
+                  className="absolute text-sm select-none text-neutral-800 opacity-100 z-40"
                   style={{
                     left: "calc(50% - 182px + 16px)",
                     top: "calc(50% - 96px + 17px)",
@@ -59,7 +61,7 @@ export default function FeedbackAnimation() {
                 </motion.h2>
               )}
               <motion.div
-                className="absolute w-[364px] max-w-[90vw] rounded-xl bg-[#F5F6F7] p-1 shadow-sm outline-none h-[192px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
+                className="absolute w-[364px] max-w-[90vw] rounded-xl bg-stone-50 p-1 shadow-sm outline-none h-[192px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
                 layoutId="feedback-container"
                 transition={{
                   duration: 0.35,
@@ -88,18 +90,82 @@ export default function FeedbackAnimation() {
                         strokeDasharray="4 4"
                       ></path>
                     </svg>
-                    <button
-                      type="submit"
-                      className="ml-auto flex !h-6 !w-[104px] items-center justify-center rounded-md px-2 !text-xs bg-black text-white hover:bg-gray-800 transition-colors"
-                      onClick={() => {
-                        setIsExpanded(false);
-                        setHasText(false);
-                      }}
-                    >
-                      <span style={{ opacity: 1 }}>
-                        <span>Send feedback</span>
-                      </span>
-                    </button>
+                    <div className="flex items-center justify-between w-full">
+                      <motion.div
+                        className="flex gap-1"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                      >
+                        <motion.button
+                          type="button"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.2, delay: 0.2 }}
+                          onClick={() =>
+                            setSelectedFace(
+                              selectedFace === "happy" ? null : "happy"
+                            )
+                          }
+                          className={`p-1 rounded-md transition-colors ${
+                            selectedFace === "happy"
+                              ? "bg-green-100 text-green-600"
+                              : "text-neutral-400 hover:text-green-500"
+                          }`}
+                        >
+                          <Smile size={14} />
+                        </motion.button>
+                        <motion.button
+                          type="button"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.2, delay: 0.3 }}
+                          onClick={() =>
+                            setSelectedFace(
+                              selectedFace === "neutral" ? null : "neutral"
+                            )
+                          }
+                          className={`p-1 rounded-md transition-colors ${
+                            selectedFace === "neutral"
+                              ? "bg-yellow-100 text-yellow-600"
+                              : "text-neutral-400 hover:text-yellow-500"
+                          }`}
+                        >
+                          <Meh size={14} />
+                        </motion.button>
+                        <motion.button
+                          type="button"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.2, delay: 0.4 }}
+                          onClick={() =>
+                            setSelectedFace(
+                              selectedFace === "sad" ? null : "sad"
+                            )
+                          }
+                          className={`p-1 rounded-md transition-colors ${
+                            selectedFace === "sad"
+                              ? "bg-red-100 text-red-600"
+                              : "text-neutral-400 hover:text-red-500"
+                          }`}
+                        >
+                          <Frown size={14} />
+                        </motion.button>
+                      </motion.div>
+                      <button
+                        type="submit"
+                        className="flex !h-6 !w-[104px] items-center justify-center rounded-md px-2 !text-xs bg-black text-white hover:bg-neutral-800 transition-colors"
+                        onClick={() => {
+                          setIsExpanded(false);
+                          setHasText(false);
+                          setSelectedFace(null);
+                        }}
+                      >
+                        <span style={{ opacity: 1 }}>
+                          <span>Send feedback</span>
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </form>
               </motion.div>

@@ -1,8 +1,7 @@
-import { Header } from "@/components/header";
-import { Work } from "@/components/work";
-import { Projects } from "@/components/project";
-import { Sandbox } from "@/components/sandbox";
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Sandbox } from "@/components/sandbox";
+import { Work } from "@/components/work";
 
 export default function Home() {
   return (

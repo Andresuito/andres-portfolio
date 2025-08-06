@@ -1,5 +1,5 @@
 import ScrollRotationSection from "@/components/scroll-rotation-section";
-import Link from "next/link";
+import { Navigation } from "@/components/navigation";
 
 export default function ScrollCarousel() {
   const images = [
@@ -14,13 +14,10 @@ export default function ScrollCarousel() {
 
   return (
     <main className="min-h-screen">
-      <div className="h-screen grid p-4 grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0">
+      <Navigation />
+      
+      <div className="h-screen grid p-4 grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0 pt-20">
         <div className="flex justify-center sm:justify-start items-start">
-          <Link href="/">
-            <span className="border-neutral-300 border rounded-full p-2 px-4 text-sm sm:text-base">
-              Home
-            </span>
-          </Link>
         </div>
 
         <div className="text-center">

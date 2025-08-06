@@ -79,14 +79,15 @@ export default function NotificationAnimation() {
         <AnimatePresence mode="wait">
           {showNotification && (
             <motion.span
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: "fit-content" }}
-              exit={{ opacity: 0, width: 0 }}
+              initial={{ opacity: 0, width: 0, marginLeft: 0 }}
+              animate={{ opacity: 1, width: "fit-content", marginLeft: 12 }}
+              exit={{ opacity: 0, width: 0, marginLeft: 0 }}
               transition={{
                 opacity: { duration: 0.2, ease: "easeInOut" },
                 width: { duration: 0.35, ease: "easeInOut" },
+                marginLeft: { duration: 0.35, ease: "easeInOut" },
               }}
-              className="text-white select-none text-sm whitespace-nowrap ml-3"
+              className="text-white select-none text-sm whitespace-nowrap"
             >
               New notification!
             </motion.span>
@@ -96,7 +97,7 @@ export default function NotificationAnimation() {
 
       <button
         onClick={addNotification}
-        className="px-2 py-1 mt-5 border border-gray-100 bg-gray-50 rounded-lg text-xs"
+        className="px-2 py-1.5 mt-5 border border-neutral-200 rounded-sm text-xs"
       >
         Send Notification
       </button>

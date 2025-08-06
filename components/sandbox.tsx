@@ -27,6 +27,22 @@ export function Sandbox() {
         </div>
       </article>
 
+      <article className="flex flex-col sm:flex-row mt-5 sm:justify-between sm:items-center animate-item">
+        <Link
+          className="group flex items-center hover:translate-x-3 transition duration-150"
+          href="/animations"
+          prefetch
+        >
+          <p className="text-base sm:text-lg">Animations</p>
+          <ArrowIcon />
+        </Link>
+
+        <div className="flex items-center mt-1 sm:mt-0">
+          <div className="relative group inline-block text-sm sm:text-base text-black p-1">
+            Motion 02
+          </div>
+        </div>
+      </article>
     </section>
   );
 }

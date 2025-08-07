@@ -1,5 +1,36 @@
 import ScrollRotationSection from "@/components/scroll-rotation-section";
 import { Navigation } from "@/components/navigation";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Scroll Carousel - Andrés B.R",
+  description: "Interactive scroll-based carousel animation showcasing modern web development techniques and CSS animations.",
+  openGraph: {
+    title: "Scroll Carousel - Andrés B.R",
+    description: "Interactive scroll-based carousel animation showcasing modern web development techniques and CSS animations.",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Scroll Carousel - Andrés B.R",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scroll Carousel - Andrés B.R",
+    description: "Interactive scroll-based carousel animation showcasing modern web development techniques and CSS animations.",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Scroll Carousel - Andrés B.R",
+      },
+    ],
+  },
+};
 
 export default function ScrollCarousel() {
   const images = [

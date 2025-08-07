@@ -4,6 +4,37 @@ import FeedbackAnimation from "@/components/animations/feedback";
 import NotificationAnimation from "@/components/animations/notification";
 import RippleAnimation from "@/components/animations/ripple";
 import { Navigation } from "@/components/navigation";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Web Animations - Andrés B.R",
+  description: "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
+  openGraph: {
+    title: "Web Animations - Andrés B.R",
+    description: "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Web Animations - Andrés B.R",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Animations - Andrés B.R",
+    description: "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Web Animations - Andrés B.R",
+      },
+    ],
+  },
+};
 
 export default function AnimationsPage() {
   return (

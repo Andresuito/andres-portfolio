@@ -10,40 +10,65 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Andres B.R",
-  description: "Frontend Developer",
+  title: "Andrés B.R - Web Developer",
+  description:
+    "Experienced web developer specializing in React, Next.js, and modern web technologies. Creating beautiful, interactive web experiences and animations.",
+  keywords: [
+    "web developer",
+    "React developer",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "web animations",
+    "web development",
+  ],
+  authors: [{ name: "Andrés B.R" }],
+  creator: "Andrés B.R",
   metadataBase: new URL("https://andresbr.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    siteName: "Andres B.R",
+    siteName: "Andrés B.R",
     type: "website",
     locale: "en_US",
     url: "https://andresbr.com",
-    title: "Andres B.R",
-    description: "Frontend Developer",
+    title: "Andrés B.R - Web Developer",
+    description:
+      "Experienced web developer specializing in React, Next.js, and modern web technologies. Creating beautiful, interactive web experiences and animations.",
     images: [
       {
         url: "/api/og",
         width: 1200,
         height: 630,
-        alt: "Andres B.R",
+        alt: "Andrés B.R - Web Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Andres B.R",
-    description: "Frontend Developer",
+    title: "Andrés B.R - Web Developer",
+    description:
+      "Experienced web developer specializing in React, Next.js, and modern web technologies. Creating beautiful, interactive web experiences and animations.",
     images: [
       {
         url: "/api/og",
         width: 1200,
         height: 630,
-        alt: "Andres B.R",
+        alt: "Andrés B.R - Web Developer Portfolio",
       },
     ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

@@ -44,11 +44,15 @@ function WorkItem({ company, role, period, url }: WorkItemProps) {
           >
             <p className="text-base sm:text-lg flex items-center">
               {role} in {company}
-              <ArrowIcon />
+              <span className="hidden sm:block">
+                <ArrowIcon />
+              </span>
             </p>
           </a>
         </div>
-        <p className="text-sm sm:text-base text-black mt-1 sm:mt-0 ml-1 sm:ml-0">{period}</p>
+        <p className="text-sm sm:text-base text-black mt-1 sm:mt-0 ml-1 sm:ml-0">
+          {period}
+        </p>
       </div>
     </div>
   );

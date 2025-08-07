@@ -10,7 +10,7 @@ export function Sandbox() {
         </h2>
       </header>
 
-      <article className="flex flex-col sm:flex-row mt-5 sm:justify-between sm:items-center animate-item">
+      <article className="flex flex-row mt-5 justify-between animate-item">
         <Link
           className="group flex items-center hover:translate-x-3 transition duration-150"
           href="/scroll-carousel"
@@ -27,7 +27,7 @@ export function Sandbox() {
         </div>
       </article>
 
-      <article className="flex flex-col sm:flex-row mt-5 sm:justify-between sm:items-center animate-item">
+      <article className="flex flex-row mt-5 justify-between animate-item">
         <Link
           className="group flex items-center hover:translate-x-3 transition duration-150"
           href="/animations"

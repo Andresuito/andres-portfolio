@@ -49,9 +49,7 @@ function ProjectItem({ title, description, type, url }: ProjectItemProps) {
           {type}
         </div>
       </div>
-      <div className="sm:hidden mt-1 text-sm text-gray-600">
-        {description}
-      </div>
+      <div className="sm:hidden mt-1 text-sm text-gray-600">{description}</div>
     </article>
   );
 }

@@ -45,11 +45,7 @@ export default function FeedbackAnimation() {
             <>
               {!hasText && (
                 <motion.h2
-                  className="absolute text-sm select-none text-neutral-800 opacity-100 z-40"
-                  style={{
-                    left: "calc(50% - 182px + 16px)",
-                    top: "calc(50% - 96px + 17px)",
-                  }}
+                  className="absolute text-sm select-none text-neutral-800 opacity-100 z-40 left-[calc(50%-134px)] sm:left-[calc(50%-154px)] lg:left-[calc(50%-166px)] top-[calc(50%-79px)]"
                   layoutId="feedback-text"
                   exit={{ opacity: 0, scale: 0.1 }}
                   transition={{
@@ -61,7 +57,7 @@ export default function FeedbackAnimation() {
                 </motion.h2>
               )}
               <motion.div
-                className="absolute w-[364px] max-w-[90vw] rounded-xl bg-stone-50 p-1 shadow-sm outline-none h-[192px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
+                className="absolute w-[300px] sm:w-[340px] lg:w-[364px] max-w-[calc(100vw-2rem)] rounded-xl bg-stone-50 p-1 shadow-sm outline-none h-[192px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
                 layoutId="feedback-container"
                 transition={{
                   duration: 0.35,
@@ -153,7 +149,7 @@ export default function FeedbackAnimation() {
                         </motion.button>
                       </motion.div>
                       <button
-                        type="submit"
+                        type="button"
                         className="flex !h-6 !w-[104px] items-center justify-center rounded-md px-2 !text-xs bg-black text-white hover:bg-neutral-800 transition-colors"
                         onClick={() => {
                           setIsExpanded(false);

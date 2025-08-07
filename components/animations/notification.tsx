@@ -17,9 +17,9 @@ export default function NotificationAnimation() {
   const addNotification = () => {
     setNotificationCount((prev) => {
       const newCount = prev + 1;
-      if (newCount > 1 && newCount <= 10) {
+      if (newCount > 1 && newCount <= 10 && !isCountAnimating) {
         setIsCountAnimating(true);
-        setTimeout(() => setIsCountAnimating(false), 300);
+        setTimeout(() => setIsCountAnimating(false), 600);
       }
       return newCount;
     });

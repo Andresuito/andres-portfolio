@@ -1,5 +1,3 @@
-import { ArrowIcon } from "./arrow-icon";
-
 export function Work() {
   return (
     <section className="container mx-auto work-section">
@@ -33,21 +31,23 @@ interface WorkItemProps {
 
 function WorkItem({ company, role, period, url }: WorkItemProps) {
   return (
-    <div className="flex flex-col sm:flex-row mt-5 sm:items-center animate-item">
+    <div className="flex flex-col sm:flex-row mt-5 sm:items-center animate-item group">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full">
         <div className="flex items-center">
           <a
-            className="flex items-center text-base sm:text-lg ml-1 group hover:translate-x-2 transition-transform duration-200"
+            className="flex items-center text-base sm:text-lg ml-1 relative overflow-hidden"
             href={url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p className="text-base sm:text-lg flex items-center">
-              {role} in {company}
-              <span className="hidden sm:block">
-                <ArrowIcon />
+            <div className="relative">
+              <span className="block text-base sm:text-lg group-hover:-translate-y-full transition-transform duration-500 ease-out delay-200">
+                {role} in {company}
               </span>
-            </p>
+              <span className="absolute top-0 left-0 text-base sm:text-lg translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out delay-200">
+                Visit {company} website
+              </span>
+            </div>
           </a>
         </div>
         <p className="text-sm sm:text-base text-black mt-1 sm:mt-0 ml-1 sm:ml-0">

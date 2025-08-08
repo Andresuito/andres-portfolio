@@ -1,5 +1,3 @@
-"use client";
-
 import FeedbackAnimation from "@/components/animations/feedback";
 import NotificationAnimation from "@/components/animations/notification";
 import RippleAnimation from "@/components/animations/ripple";
@@ -8,10 +6,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Web Animations - Andrés B.R",
-  description: "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
+  description:
+    "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
   openGraph: {
     title: "Web Animations - Andrés B.R",
-    description: "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
+    description:
+      "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
     images: [
       {
         url: "/api/og",
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Web Animations - Andrés B.R",
-    description: "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
+    description:
+      "Collection of interactive web animations including feedback, notification, and ripple effects built with React and modern CSS.",
     images: [
       {
         url: "/api/og",

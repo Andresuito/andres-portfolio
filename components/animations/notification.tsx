@@ -190,7 +190,7 @@ export default function NotificationAnimation() {
 
         <button
           onClick={addNotification}
-          className="px-2 py-1.5 mt-5 border border-neutral-200 rounded-sm text-xs"
+          className="px-2 py-1.5 mt-5 border select-none border-neutral-200 rounded-sm text-xs"
         >
           Send Notification
         </button>

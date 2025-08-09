@@ -66,7 +66,7 @@ export default function RippleAnimation() {
           onClick={createRipple}
         >
           <span className="text-neutral-700 text-sm font-medium select-none">
-            Click anywhere
+            Click button
           </span>
 
           {ripples.map((ripple) => (

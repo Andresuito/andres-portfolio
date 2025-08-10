@@ -4,20 +4,16 @@ export function Projects() {
   return (
     <section className="projects-section">
       <header>
-        <h2 className="font-semibold text-lg animate-item">Projects</h2>
+        <h2 className="font-semibold text-lg animate-item bg-black text-white w-fit p-1 px-3">
+          Projects
+        </h2>
       </header>
 
       <ProjectItem
-        title="ggsalt"
-        description="Design portfolio website"
-        type="Portfolio"
-        url="https://www.ggsalt.work"
-      />
-      <ProjectItem
-        title="KGLS"
-        description="Architecture portfolio website"
-        type="Portfolio"
-        url="https://www.kristinesalting.com"
+        title="Palette"
+        description="An infinite canvas to play with colors"
+        type="Canva"
+        url="https://palette.andresbr.com"
       />
     </section>
   );
@@ -34,7 +30,7 @@ function ProjectItem({ title, description, type, url }: ProjectItemProps) {
   return (
     <article className="flex flex-col sm:flex-row mt-5 sm:justify-between sm:items-center animate-item">
       <a
-        className="group flex items-center hover:translate-x-3 transition duration-150"
+        className="group flex items-center transition duration-150"
         target="_blank"
         href={url}
       >

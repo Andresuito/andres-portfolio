@@ -1,7 +1,11 @@
 export function Footer() {
   return (
-    <footer className="flex mx-auto justify-center sm:justify-between text-base sm:text-lg items-center">
-      <div className="flex items-center flex-wrap justify-center sm:justify-start">
+    <footer className="flex flex-row mt-5 justify-between animate-item border-t mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 text-base sm:text-lg items-center">
+      <div className="flex items-center">
+        {/* Empty left side to match hero layout */}
+      </div>
+      
+      <div className="flex items-center">
         <a
           href="https://x.com/andresuiito"
           target="_blank"

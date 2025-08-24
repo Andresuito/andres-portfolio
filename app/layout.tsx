@@ -1,12 +1,23 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
-const lato = Lato({
-  weight: "400",
+const geist = Geist({
   style: "normal",
   subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  style: "normal",
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
+
+const sourceSerif = Source_Serif_4({
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -80,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.className} bg-white relative antialiased scroll-smooth`}
+        className={`${geist.className} ${geistMono.variable} ${sourceSerif.variable} bg-[#fafcfd] text-[#32404f] relative antialiased scroll-smooth`}
       >
         {children}
         <Analytics />

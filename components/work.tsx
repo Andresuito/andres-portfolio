@@ -1,6 +1,6 @@
 export function Work() {
   return (
-    <section className="container mx-auto work-section">
+    <section className=" mx-auto">
       <h2 className="font-semibold text-lg animate-item bg-black text-white w-fit p-1 px-3">
         Work Experience
       </h2>

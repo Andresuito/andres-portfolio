@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({
@@ -12,12 +12,6 @@ const geistMono = Geist_Mono({
   style: "normal",
   subsets: ["latin"],
   variable: "--font-mono",
-});
-
-const sourceSerif = Source_Serif_4({
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -46,13 +40,13 @@ export const metadata: Metadata = {
     url: "https://andresbr.com",
     title: "Andrés B.R - Web Developer",
     description:
-      "Experienced web developer specializing in React, Next.js, and modern web technologies. Creating beautiful, interactive web experiences and animations.",
+      "Based in Spain, I specialize in smooth animations and interactive components. My work centers on interfaces that feel intuitive and adapt to tomorrow’s standards.",
     images: [
       {
-        url: "/api/og",
+        url: "/api/og?title=Web Developer",
         width: 1200,
         height: 630,
-        alt: "Andrés B.R - Web Developer Portfolio",
+        alt: "Andrés B.R - Web Developer",
       },
     ],
   },
@@ -60,13 +54,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Andrés B.R - Web Developer",
     description:
-      "Experienced web developer specializing in React, Next.js, and modern web technologies. Creating beautiful, interactive web experiences and animations.",
+      "Based in Spain, I specialize in smooth animations and interactive components. My work centers on interfaces that feel intuitive and adapt to tomorrow’s standards.",
     images: [
       {
-        url: "/api/og",
+        url: "/api/og?title=Web Developer",
         width: 1200,
         height: 630,
-        alt: "Andrés B.R - Web Developer Portfolio",
+        alt: "Andrés B.R - Web Developer",
       },
     ],
   },
@@ -91,7 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.className} ${geistMono.variable} ${sourceSerif.variable} bg-[#fafcfd] text-[#32404f] relative antialiased scroll-smooth`}
+        className={`${geist.className} ${geistMono.variable} bg-[#fafcfd] text-[#32404f] relative antialiased scroll-smooth`}
       >
         {children}
         <Analytics />

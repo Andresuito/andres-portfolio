@@ -1,13 +1,14 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { Projects } from "@/components/projects";
 
 export default function Home() {
   return (
     <main>
       <Header />
-      <section className="mx-auto h-screen flex justify-center items-center px-4 sm:px-6 md:px-8 my-6 sm:my-8 lg:my-10">
-        soon
-      </section>
+      <Hero />
+      <Projects />
       <Footer />
     </main>
   );

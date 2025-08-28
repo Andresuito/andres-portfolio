@@ -1,4 +1,43 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "404 - Page Not Found | Andrés B.R",
+  description: "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    title: "404 - Page Not Found | Andrés B.R",
+    description: "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
+    url: "https://andresbr.com/404",
+    siteName: "Andrés B.R",
+    images: [
+      {
+        url: "/api/og?title=Web Developer&subtitle=Andrés B.R",
+        width: 1200,
+        height: 630,
+        alt: "404 - Page Not Found | Andrés B.R",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "404 - Page Not Found | Andrés B.R",
+    description: "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
+    images: [
+      {
+        url: "/api/og?title=Web Developer&subtitle=Andrés B.R",
+        width: 1200,
+        height: 630,
+        alt: "404 - Page Not Found | Andrés B.R",
+      },
+    ],
+  },
+};
 
 export default function NotFound() {
   return (
@@ -12,6 +51,7 @@ export default function NotFound() {
 
         <div className="group">
           <Link
+            prefetch
             href="/"
             className="inline-block text-base sm:text-lg ml-1 relative overflow-hidden"
           >

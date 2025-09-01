@@ -30,20 +30,6 @@ const projectDetails = {
       { id: "visual-design", title: "Visual Design" },
       { id: "performance-optimization", title: "Performance Optimization" },
       { id: "final-designs", title: "Final Designs" },
-      { id: "reflection", title: "Reflection" },
-    ],
-  },
-  ggsalt: {
-    timeline: "Jun - Jun 2025",
-    role: "Frontend Developer & Designer",
-    team: ["1 Developer (me!)"],
-    skills: ["Next.js", "React", "Design Systems"],
-    sections: [
-      { id: "overview", title: "Overview" },
-      { id: "architecture", title: "Architecture" },
-      { id: "design-system", title: "Design System" },
-      { id: "development", title: "Development" },
-      { id: "reflection", title: "Reflection" },
     ],
   },
   animations: {
@@ -587,67 +573,6 @@ export default function ProjectPage({
                         cohesive interface that supports both creative
                         exploration and professional workflow.
                       </p>
-                    </div>
-                  )}
-
-                  {section.id === "reflection" && slug === "palette" && (
-                    <div className="space-y-8">
-                      <h2 className="pb-1 mb-1 text-base md:text-lg">
-                        Lessons learned and future opportunities.
-                      </h2>
-                      <p className="text-muted-foreground text-base leading-7">
-                        Building Palette was an intensive journey into modern
-                        web application architecture, performance optimization,
-                        and user experience design. The project pushed the
-                        boundaries of what's possible with web technologies.
-                      </p>
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="!opacity-100 mb-3">Key Learnings</h4>
-                          <ul className="space-y-2 text-muted-foreground">
-                            <li>
-                              • Performance optimization is critical for
-                              creative tools - every interaction must feel
-                              instant
-                            </li>
-                            <li>
-                              • State management at scale requires careful
-                              architecture and optimization
-                            </li>
-                            <li>
-                              • Canvas-based applications need specialized
-                              approaches to common web patterns
-                            </li>
-                            <li>
-                              • User testing early reveals assumptions about
-                              creative workflows
-                            </li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="!opacity-100 mb-3">
-                            Future Opportunities
-                          </h4>
-                          <ul className="space-y-2 text-muted-foreground">
-                            <li>
-                              • Collaborative editing with real-time
-                              synchronization
-                            </li>
-                            <li>
-                              • AI-powered color suggestions and palette
-                              generation
-                            </li>
-                            <li>
-                              • Integration with design tools like Figma and
-                              Sketch
-                            </li>
-                            <li>
-                              • Advanced color harmony and accessibility
-                              analysis
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
                     </div>
                   )}
 

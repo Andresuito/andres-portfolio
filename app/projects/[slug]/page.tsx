@@ -57,7 +57,6 @@ const projectDetails = {
       { id: "notification", title: "Notification System" },
       { id: "ripple", title: "Ripple Effect" },
       { id: "checkbox", title: "Animated Checkbox" },
-      { id: "technical", title: "Technical Details" },
     ],
   },
 };
@@ -269,12 +268,12 @@ export default function ProjectPage({
             {details.sections.map((section, index) => (
               <AnimatedSection key={section.id} delay={0.1 * index}>
                 <section id={section.id} className="flex flex-col gap-4">
-                  <h4 className="!opacity-100 mb-1 text-base md:text-lg font-medium">
+                  <h4 className="!opacity-100 text-xl md:text-2xl font-serif leading-tight">
                     {section.title}
                   </h4>
                   {section.id === "overview" && slug === "animations" && (
                     <div className="space-y-6">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         A collection of micro-interactions designed to enhance
                         user experience through purposeful motion.
                       </h2>
@@ -292,7 +291,7 @@ export default function ProjectPage({
                       <div className="w-full bg-neutral-50 border border-neutral-200 rounded-lg p-8 md:p-20 flex justify-center items-center min-h-[280px] md:min-h-[320px]">
                         <FeedbackAnimation />
                       </div>
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 ">
                         Expandable feedback form with shared layout animations.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">
@@ -311,7 +310,7 @@ export default function ProjectPage({
                       <div className="w-full bg-neutral-50 border border-neutral-200 rounded-lg p-8 md:p-20 flex justify-center items-center min-h-[280px] md:min-h-[320px]">
                         <NotificationAnimation />
                       </div>
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         Multi-layered notification system with coordinated
                         animations.
                       </h2>
@@ -332,7 +331,7 @@ export default function ProjectPage({
                       <div className="w-full bg-neutral-50 border border-neutral-200 rounded-lg p-8 md:p-20 flex justify-center items-center min-h-[280px] md:min-h-[320px]">
                         <RippleAnimation />
                       </div>
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         Material Design ripple effect with precise click
                         tracking.
                       </h2>
@@ -351,7 +350,7 @@ export default function ProjectPage({
                       <div className="w-full bg-neutral-50 border border-neutral-200 rounded-lg p-8 md:p-20 flex justify-center items-center min-h-[280px] md:min-h-[320px]">
                         <CheckAnimated />
                       </div>
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         SVG path animation with progressive checkmark drawing.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">
@@ -365,26 +364,9 @@ export default function ProjectPage({
                       </p>
                     </div>
                   )}
-                  {section.id === "technical" && slug === "animations" && (
-                    <div className="space-y-8">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
-                        Performance-optimized animations built with modern web
-                        standards.
-                      </h2>
-                      <p className="text-muted-foreground text-base leading-7">
-                        All animations are built with Framer Motion and
-                        optimized for performance. They use hardware-accelerated
-                        transforms, respect prefers-reduced-motion settings, and
-                        include proper cleanup to prevent memory leaks. Each
-                        component is self-contained with its own state
-                        management and can be easily integrated into any React
-                        application.
-                      </p>
-                    </div>
-                  )}
                   {section.id === "overview" && slug === "palette" && (
                     <div className="space-y-8">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         Palette started with the goal of creating a powerful yet
                         intuitive color design tool that bridges the gap between
                         creative exploration and professional workflow.
@@ -398,7 +380,7 @@ export default function ProjectPage({
                       </p>
                       <div className="mt-8">
                         <h4 className="!opacity-100 mb-4">Solution</h4>
-                        <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                        <h2 className="pb-1 mb-1 text-base md:text-lg">
                           Palette: An infinite canvas color tool with advanced
                           features for modern designers.
                         </h2>
@@ -418,7 +400,7 @@ export default function ProjectPage({
                   {section.id === "initial-observations" &&
                     slug === "palette" && (
                       <div className="space-y-8">
-                        <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                        <h2 className="pb-1 mb-1 text-base md:text-lg">
                           There is no convenient and feature-rich solution for
                           modern color design workflows.
                         </h2>
@@ -465,7 +447,7 @@ export default function ProjectPage({
                   {section.id === "technical-architecture" &&
                     slug === "palette" && (
                       <div className="space-y-8">
-                        <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                        <h2 className="pb-1 mb-1 text-base md:text-lg">
                           Built with modern web technologies for performance and
                           scalability.
                         </h2>
@@ -514,7 +496,7 @@ export default function ProjectPage({
 
                   {section.id === "core-features" && slug === "palette" && (
                     <div className="space-y-8">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         Professional color tools designed for modern workflows.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7 mt-6">
@@ -529,7 +511,7 @@ export default function ProjectPage({
                   {section.id === "interaction-design" &&
                     slug === "palette" && (
                       <div className="space-y-8">
-                        <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                        <h2 className="pb-1 mb-1 text-base md:text-lg">
                           Intuitive interactions that feel natural and
                           responsive.
                         </h2>
@@ -544,7 +526,7 @@ export default function ProjectPage({
 
                   {section.id === "visual-design" && slug === "palette" && (
                     <div className="space-y-8">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         Clean, focused interface that puts colors first.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">
@@ -558,7 +540,7 @@ export default function ProjectPage({
                   {section.id === "performance-optimization" &&
                     slug === "palette" && (
                       <div className="space-y-8">
-                        <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                        <h2 className="pb-1 mb-1 text-base md:text-lg">
                           Optimized for smooth performance even with complex
                           color operations.
                         </h2>
@@ -597,7 +579,7 @@ export default function ProjectPage({
 
                   {section.id === "final-designs" && slug === "palette" && (
                     <div className="space-y-8">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         The complete color design experience.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">
@@ -610,7 +592,7 @@ export default function ProjectPage({
 
                   {section.id === "reflection" && slug === "palette" && (
                     <div className="space-y-8">
-                      <h2 className="pb-1 text-xl md:text-2xl font-serif leading-tight">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
                         Lessons learned and future opportunities.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">

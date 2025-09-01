@@ -69,8 +69,6 @@ export async function generateMetadata({
         return "The world's first infinite canvas color tool. Professional color design with advanced features for modern workflows.";
       case "animations":
         return "A collection of micro-interactions designed to enhance user experience through purposeful motion and smooth animations.";
-      case "ggsalt":
-        return "A modern design portfolio showcasing creative work with clean aesthetics and thoughtful interactions.";
       default:
         return `${project.title} - A showcase of modern web development and design.`;
     }

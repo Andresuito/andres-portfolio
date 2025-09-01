@@ -13,23 +13,13 @@ import { use } from "react";
 const projectDetails = {
   palette: {
     timeline: "August - Ongoing 2025",
-    role: "Product Designer & Frontend Engineer",
-    team: ["1 Designer (me!)", "1 Engineer (me!)"],
-    skills: [
-      "Product Design",
-      "Frontend Engineering",
-      "Color Theory",
-      "Canvas API",
-    ],
     sections: [
       { id: "overview", title: "Overview" },
-      { id: "initial-observations", title: "Initial Observations" },
-      { id: "technical-architecture", title: "Technical Architecture" },
-      { id: "core-features", title: "Core Features" },
-      { id: "interaction-design", title: "Interaction Design" },
-      { id: "visual-design", title: "Visual Design" },
-      { id: "performance-optimization", title: "Performance Optimization" },
-      { id: "final-designs", title: "Final Designs" },
+      { id: "infinite-canvas", title: "Infinite Canvas Workspace" },
+      { id: "color-management", title: "Advanced Color Management" },
+      { id: "professional-tools", title: "Professional Color Tools" },
+      { id: "image-extraction", title: "Image Color Extraction" },
+      { id: "gradient-generation", title: "Gradient Generation" },
     ],
   },
   animations: {
@@ -66,7 +56,7 @@ export async function generateMetadata({
   const getProjectDescription = (slug: string): string => {
     switch (slug) {
       case "palette":
-        return "The world's first infinite canvas color tool. Professional color design with advanced features for modern workflows.";
+        return "Palette is a professional color design application combining infinite canvas freedom with advanced color management. Originally created as a fun color experimentation tool, it evolved into a comprehensive platform for designers, developers, and color enthusiasts.";
       case "animations":
         return "A collection of micro-interactions designed to enhance user experience through purposeful motion and smooth animations.";
       default:
@@ -82,7 +72,9 @@ export async function generateMetadata({
     description,
     keywords: [
       project.title.toLowerCase(),
-      ...details.skills.map((skill) => skill.toLowerCase()),
+      ...("skills" in details
+        ? details.skills.map((skill: string) => skill.toLowerCase())
+        : []),
       "web development",
       "design",
       "portfolio",
@@ -212,36 +204,36 @@ export default function ProjectPage({
 
             <AnimatedSection delay={0.3}>
               <div className="flex flex-col md:flex-row gap-6 md:gap-12">
-                <div className="flex w-full flex-col gap-2">
-                  <h4 className="!opacity-100">Role</h4>
-                  <p>
-                    {"role" in details ? details.role : "Designer & Developer"}
-                  </p>
-                </div>
+                {"role" in details && (
+                  <div className="flex w-full flex-col gap-2">
+                    <h4 className="!opacity-100">Role</h4>
+                    <p>{details.role}</p>
+                  </div>
+                )}
                 <div className="flex w-full flex-col gap-2">
                   <h4 className="!opacity-100">Timeline</h4>
                   <p>{details.timeline}</p>
                 </div>
-                <div className="flex w-full flex-col gap-2">
-                  <h4 className="!opacity-100">Team</h4>
-                  <div className="flex flex-col gap-0">
-                    {"team" in details ? (
-                      details.team.map((member: string, index: number) => (
+                {"team" in details && (
+                  <div className="flex w-full flex-col gap-2">
+                    <h4 className="!opacity-100">Team</h4>
+                    <div className="flex flex-col gap-0">
+                      {details.team.map((member: string, index: number) => (
                         <p key={index}>{member}</p>
-                      ))
-                    ) : (
-                      <p>Solo project</p>
-                    )}
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="flex w-full flex-col gap-2">
-                  <h4 className="!opacity-100">Skills</h4>
-                  <div className="flex flex-col gap-0">
-                    {details.skills.map((skill, index) => (
-                      <p key={index}>{skill}</p>
-                    ))}
+                )}
+                {"skills" in details && (
+                  <div className="flex w-full flex-col gap-2">
+                    <h4 className="!opacity-100">Skills</h4>
+                    <div className="flex flex-col gap-0">
+                      {details.skills.map((skill: string, index: number) => (
+                        <p key={index}>{skill}</p>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </AnimatedSection>
           </div>
@@ -351,228 +343,240 @@ export default function ProjectPage({
                   {section.id === "overview" && slug === "palette" && (
                     <div className="space-y-8">
                       <h2 className="pb-1 mb-1 text-base md:text-lg">
-                        Palette started with the goal of creating a powerful yet
-                        intuitive color design tool that bridges the gap between
-                        creative exploration and professional workflow.
+                        Palette is a professional color design application that
+                        combines the creative freedom of an infinite canvas with
+                        advanced color management features.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">
-                        Traditional color tools are either too simplistic for
-                        serious design work or overly complex for creative
-                        exploration. This gap in the market for a tool that
-                        combines professional features with an intuitive
-                        interface was the starting point for Palette.
+                        Originally created as a fun color experimentation tool
+                        for my girlfriend who wanted something to play with
+                        colors and test different combinations.
                       </p>
                       <div className="mt-8">
-                        <h4 className="!opacity-100 mb-4">Solution</h4>
-                        <h2 className="pb-1 mb-1 text-base md:text-lg">
-                          Palette: An infinite canvas color tool with advanced
-                          features for modern designers.
-                        </h2>
-                      </div>
-                      <div className="mt-8">
-                        <h4 className="!opacity-100 mb-4">Outcomes</h4>
+                        <h4 className="!opacity-100 mb-4">Core Concept</h4>
                         <p className="text-muted-foreground text-base leading-7">
-                          Palette is live and has been gaining traction in the
-                          design community for its unique approach to color
-                          exploration.
+                          The unique combination of infinite canvas freedom with
+                          professional color management features makes it stand
+                          out from both simple color picker tools and complex
+                          design software. It's designed for users who need more
+                          than basic color pickers but want an intuitive
+                          interface.
                         </p>
-                        <div className="h-[1px] w-full bg-foreground/10 mt-16 mb-8"></div>
                       </div>
+                      <div className="h-[1px] w-full bg-foreground/10 mt-16 mb-8"></div>
                     </div>
                   )}
 
-                  {section.id === "initial-observations" &&
-                    slug === "palette" && (
-                      <div className="space-y-8">
-                        <h2 className="pb-1 mb-1 text-base md:text-lg">
-                          There is no convenient and feature-rich solution for
-                          modern color design workflows.
-                        </h2>
-                        <p className="text-muted-foreground text-base leading-7">
-                          Existing color tools either lack professional features
-                          or have steep learning curves. Initial research with
-                          designers and developers led us to uncover 2 key pain
-                          points:
-                        </p>
-                        <div className="mt-8">
-                          <h4 className="!opacity-100 mb-4">Pain Points</h4>
-                          <div className="flex w-full flex-col md:flex-row gap-6 mt-4">
-                            <div className="flex flex-col gap-1 w-full">
-                              <h3>1. Limited Creative Freedom</h3>
-                              <p className="text-muted-foreground">
-                                Existing tools constrain exploration with rigid
-                                interfaces and limited canvas space.
-                              </p>
-                            </div>
-                            <div className="flex flex-col gap-1 w-full">
-                              <h3>2. Missing Professional Features</h3>
-                              <p className="text-muted-foreground">
-                                Simple color pickers lack advanced features like
-                                gradient generation and image extraction.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="w-full mt-8">
-                          <h3 className="italic py-0 my-6 pl-4 border-l-2 border-foreground-light">
-                            Key Insight: Designers need a tool that combines the
-                            creative freedom of an infinite canvas with
-                            professional color management features!
-                          </h3>
-                        </div>
-                        <p className="text-muted-foreground text-base leading-7">
-                          These pain points validated our solution and unique
-                          position in the market, as well as confirmed the need
-                          for a modern, web-based color design tool.
-                        </p>
-                      </div>
-                    )}
+                  {section.id === "infinite-canvas" && slug === "palette" && (
+                    <div className="space-y-8">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
+                        Unlimited workspace that adapts to your creative needs.
+                      </h2>
+                      <p className="text-muted-foreground text-base leading-7">
+                        The infinite canvas workspace provides unlimited zoomable and pannable space where colors can be arranged freely without constraints. A clean, minimal interface that puts colors first with intuitive drag-and-drop interactions for seamless creative exploration.
+                      </p>
+                    </div>
+                  )}
 
-                  {section.id === "technical-architecture" &&
-                    slug === "palette" && (
-                      <div className="space-y-8">
-                        <h2 className="pb-1 mb-1 text-base md:text-lg">
-                          Built with modern web technologies for performance and
-                          scalability.
-                        </h2>
-                        <p className="text-muted-foreground text-base leading-7">
-                          Palette is architected as a Single Page Application
-                          using Next.js 15 with React 19, featuring a custom
-                          state management system and dual storage strategy for
-                          reliability.
-                        </p>
+                  {section.id === "color-management" && slug === "palette" && (
+                    <div className="space-y-8">
+                      <h2 className="pb-1 mb-1 text-base md:text-lg">
+                        Advanced color picker panel with professional format
+                        support.
+                      </h2>
+                      <p className="text-muted-foreground text-base leading-7">
+                        When colors are selected, the advanced color picker
+                        panel appears with support for multiple color formats
+                        and both bulk and individual editing modes.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-4">
-                          <h4 className="!opacity-100">Core Technologies</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
-                              <h5 className="font-medium mb-2">Frontend</h5>
-                              <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>Next.js 15 App Router</li>
-                                <li>React 19 with Hooks</li>
-                                <li>TypeScript</li>
-                                <li>Tailwind CSS</li>
-                              </ul>
-                            </div>
-                            <div className="p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
-                              <h5 className="font-medium mb-2">
-                                State Management
-                              </h5>
-                              <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>Custom Redux-like Store</li>
-                                <li>Typed Actions/Reducers</li>
-                                <li>React Context Bridge</li>
-                                <li>Optimized Selectors</li>
-                              </ul>
-                            </div>
-                            <div className="p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
-                              <h5 className="font-medium mb-2">Storage</h5>
-                              <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>IndexedDB Primary</li>
-                                <li>localStorage Fallback</li>
-                                <li>Auto-save System</li>
-                                <li>Background Sync</li>
-                              </ul>
-                            </div>
-                          </div>
+                          <h4 className="!opacity-100">Color Formats</h4>
+                          <ul className="space-y-2 text-muted-foreground">
+                            <li>• HEX - Web standard format</li>
+                            <li>• RGB - Red, Green, Blue values</li>
+                            <li>• HSL - Hue, Saturation, Lightness</li>
+                            <li>• OKLCH - Perceptually uniform color space</li>
+                          </ul>
+                        </div>
+                        <div className="space-y-4">
+                          <h4 className="!opacity-100">Editing Modes</h4>
+                          <ul className="space-y-2 text-muted-foreground">
+                            <li>• Bulk editing for all selected colors</li>
+                            <li>• Individual color editing</li>
+                            <li>• Compact format display on swatches</li>
+                            <li>• Full format display for clipboard copying</li>
+                          </ul>
                         </div>
                       </div>
-                    )}
-
-                  {section.id === "core-features" && slug === "palette" && (
-                    <div className="space-y-8">
-                      <h2 className="pb-1 mb-1 text-base md:text-lg">
-                        Professional color tools designed for modern workflows.
-                      </h2>
-                      <p className="text-muted-foreground text-base leading-7 mt-6">
-                        Core features include infinite canvas workspace,
-                        multi-selection system, advanced color extraction from
-                        images, and intelligent gradient generation with linear
-                        and radial patterns.
-                      </p>
                     </div>
                   )}
 
-                  {section.id === "interaction-design" &&
+                  {section.id === "professional-tools" &&
                     slug === "palette" && (
                       <div className="space-y-8">
                         <h2 className="pb-1 mb-1 text-base md:text-lg">
-                          Intuitive interactions that feel natural and
-                          responsive.
+                          Professional-grade color tools for modern workflows.
                         </h2>
                         <p className="text-muted-foreground text-base leading-7">
-                          Every interaction is carefully crafted to provide
-                          immediate feedback and maintain creative flow. The
-                          interface adapts to user actions without interrupting
-                          the design process.
+                          Comprehensive suite of color tools including harmony
+                          generation, blending, mixing, accessibility analysis,
+                          and professional color utilities.
                         </p>
-                      </div>
-                    )}
-
-                  {section.id === "visual-design" && slug === "palette" && (
-                    <div className="space-y-8">
-                      <h2 className="pb-1 mb-1 text-base md:text-lg">
-                        Clean, focused interface that puts colors first.
-                      </h2>
-                      <p className="text-muted-foreground text-base leading-7">
-                        The visual design prioritizes the colors being worked
-                        with, using a minimal interface that provides powerful
-                        tools without visual clutter.
-                      </p>
-                    </div>
-                  )}
-
-                  {section.id === "performance-optimization" &&
-                    slug === "palette" && (
-                      <div className="space-y-8">
-                        <h2 className="pb-1 mb-1 text-base md:text-lg">
-                          Optimized for smooth performance even with complex
-                          color operations.
-                        </h2>
-                        <p className="text-muted-foreground text-base leading-7">
-                          Performance is critical for creative tools. Every
-                          interaction is optimized using techniques like
-                          viewport culling, memoization, and hardware
-                          acceleration.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="space-y-4">
-                            <h4 className="!opacity-100">
-                              Rendering Optimizations
+                        <div className="space-y-6">
+                          <div>
+                            <h4 className="!opacity-100 mb-3">
+                              Color Harmonies
+                            </h4>
+                            <p className="text-muted-foreground text-sm mb-3">
+                              Generate professional color harmonies with smart
+                              positioning
+                            </p>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                              <div className="p-3 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+                                Complementary
+                              </div>
+                              <div className="p-3 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+                                Triadic
+                              </div>
+                              <div className="p-3 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+                                Analogous
+                              </div>
+                              <div className="p-3 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
+                                Tetradic
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 className="!opacity-100 mb-3">
+                              Color Analysis
                             </h4>
                             <ul className="space-y-2 text-muted-foreground">
                               <li>
-                                • Viewport culling for off-screen elements
+                                • WCAG contrast ratio calculator with AA/AAA
+                                ratings
                               </li>
-                              <li>• Hardware-accelerated transforms</li>
-                              <li>• Efficient re-rendering with React.memo</li>
-                              <li>• Debounced updates during interactions</li>
+                              <li>
+                                • Color accessibility information and compliance
+                              </li>
+                              <li>
+                                • Brand color matching with popular brand
+                                palettes
+                              </li>
+                              <li>
+                                • Eyedropper tool using browser's native
+                                EyeDropper API
+                              </li>
                             </ul>
                           </div>
-                          <div className="space-y-4">
-                            <h4 className="!opacity-100">Memory Management</h4>
+                          <div>
+                            <h4 className="!opacity-100 mb-3">
+                              Advanced Features
+                            </h4>
                             <ul className="space-y-2 text-muted-foreground">
-                              <li>• Automatic cleanup of unused elements</li>
-                              <li>• Lazy loading of complex operations</li>
-                              <li>• Efficient storage with IndexedDB</li>
-                              <li>• Background save operations</li>
+                              <li>
+                                • Real-time color blending with dashed border
+                                overlay
+                              </li>
+                              <li>
+                                • Color mixer tool with adjustable percentage
+                                slider
+                              </li>
+                              <li>
+                                • Color blindness simulation (Protanopia,
+                                Deuteranopia, Tritanopia)
+                              </li>
+                              <li>
+                                • Human-readable color names and temperature
+                                adjustment
+                              </li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     )}
 
-                  {section.id === "final-designs" && slug === "palette" && (
+                  {section.id === "image-extraction" && slug === "palette" && (
                     <div className="space-y-8">
                       <h2 className="pb-1 mb-1 text-base md:text-lg">
-                        The complete color design experience.
+                        Intelligent color extraction from images with advanced
+                        clustering.
                       </h2>
                       <p className="text-muted-foreground text-base leading-7">
-                        The final design brings together all features in a
-                        cohesive interface that supports both creative
-                        exploration and professional workflow.
+                        Upload any image to extract dominant colors using
+                        intelligent clustering algorithms that group similar
+                        colors and filter out uninteresting ones.
                       </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                          <h4 className="!opacity-100">Smart Processing</h4>
+                          <ul className="space-y-2 text-muted-foreground">
+                            <li>• Intelligent color clustering algorithms</li>
+                            <li>
+                              • Filters out colors that are too bright, dark, or
+                              unsaturated
+                            </li>
+                            <li>• Groups similar colors automatically</li>
+                            <li>• Selectable extracted colors with preview</li>
+                          </ul>
+                        </div>
+                        <div className="space-y-4">
+                          <h4 className="!opacity-100">Output</h4>
+                          <ul className="space-y-2 text-muted-foreground">
+                            <li>
+                              • Grid layout arrangement when added to canvas
+                            </li>
+                            <li>• Dominant color extraction</li>
+                            <li>• Preview of extracted palette</li>
+                            <li>• Direct integration with canvas workflow</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   )}
+
+                  {section.id === "gradient-generation" &&
+                    slug === "palette" && (
+                      <div className="space-y-8">
+                        <h2 className="pb-1 mb-1 text-base md:text-lg">
+                          Professional gradient generation with linear and
+                          radial patterns.
+                        </h2>
+                        <p className="text-muted-foreground text-base leading-7">
+                          Generate smooth color transitions between selected
+                          elements with configurable step counts and smart
+                          positioning to avoid overlap.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="space-y-4">
+                            <h4 className="!opacity-100">Linear Gradients</h4>
+                            <ul className="space-y-2 text-muted-foreground">
+                              <li>
+                                • Creates colors between 2 selected elements
+                              </li>
+                              <li>
+                                • Smooth transitions with configurable steps
+                              </li>
+                              <li>• Smart positioning to avoid overlap</li>
+                              <li>• Professional gradient algorithms</li>
+                            </ul>
+                          </div>
+                          <div className="space-y-4">
+                            <h4 className="!opacity-100">Radial Gradients</h4>
+                            <ul className="space-y-2 text-muted-foreground">
+                              <li>
+                                • Circular color transitions from multiple
+                                elements
+                              </li>
+                              <li>• Intelligent spacing and positioning</li>
+                              <li>• Configurable step counts</li>
+                              <li>• Maintains original color relationships</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
 
                   {section.id === "overview" &&
                     slug !== "animations" &&
@@ -580,7 +584,6 @@ export default function ProjectPage({
                       <p className="text-muted-foreground">
                         This project showcases my work on{" "}
                         {project.title.toLowerCase()}, demonstrating key skills
-                        in {details.skills.join(", ").toLowerCase()}.
                       </p>
                     )}
                 </section>

@@ -34,8 +34,49 @@ export function Hero() {
           >
             Based in Spain, I specialize in smooth animations and interactive
             components. My work centers on interfaces that feel intuitive and
-            adapt to tomorrow’s standards.
+            adapt to tomorrow's standards.
           </motion.p>
+        </div>
+        <div className="flex items-start justify-start lg:justify-end">
+          <motion.div 
+            className="flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+          >
+            <a
+              href="https://x.com/andresuiito"
+              target="_blank"
+              className="relative px-2 py-1 overflow-hidden group transition-colors duration-500 hover:text-white text-center text-lg"
+            >
+              <span className="absolute inset-0 bg-black transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+              <span className="relative z-10">X</span>
+            </a>
+            <a
+              href="mailto:contact@andresbr.com"
+              target="_blank"
+              className="relative px-2 py-1 overflow-hidden group transition-colors duration-500 hover:text-white text-center text-lg"
+            >
+              <span className="absolute inset-0 bg-black transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+              <span className="relative z-10">Email</span>
+            </a>
+            <a
+              href="https://github.com/Andresuito"
+              target="_blank"
+              className="relative px-2 py-1 overflow-hidden group transition-colors duration-500 hover:text-white text-center text-lg"
+            >
+              <span className="absolute inset-0 bg-black transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+              <span className="relative z-10">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/andres-br"
+              target="_blank"
+              className="relative px-2 py-1 overflow-hidden group transition-colors duration-500 hover:text-white text-center text-lg"
+            >
+              <span className="absolute inset-0 bg-black transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+              <span className="relative z-10">LinkedIn</span>
+            </a>
+          </motion.div>
         </div>
       </div>
     </motion.section>

@@ -1,12 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geist = Geist({
-  style: "normal",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   style: "normal",
@@ -85,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.className} ${geistMono.variable} bg-[#fafcfd] text-[#32404f] relative antialiased scroll-smooth`}
+        className={`${geistMono.className} bg-[#fafcfd] text-[#32404f] relative antialiased scroll-smooth`}
       >
         {children}
         <Analytics />

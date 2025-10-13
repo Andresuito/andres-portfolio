@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Andrés B.R - Web Developer",
@@ -80,9 +81,26 @@ export default function Home() {
                   palette
                 </a>
                 <br />
-                professional color design application that combines the creative
-                freedom of an infinite canvas with advanced color management
-                features.
+                color design application that combines the creative freedom of
+                an infinite canvas with advanced color management features.
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-medium mb-4 text-foreground ">
+                craft ☺
+              </h2>
+              <div className="bg-card text-muted-foreground">
+                <Link
+                  href="/craft"
+                  prefetch
+                  rel="noopener noreferrer"
+                  className="text-foreground font-medium hover:text-primary transition-colors underline decoration-1 underline-offset-2 hover:no-underline"
+                >
+                  craft
+                </Link>
+                <br />
+                playground for creative coding, motion, and visual experiments.
               </div>
             </div>
           </div>

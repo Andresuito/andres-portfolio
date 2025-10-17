@@ -179,7 +179,7 @@ export default function NotificationAnimation() {
 
           {showNotification && (
             <span
-              className={`text-white select-none text-sm ${
+              className={`text-white select-none text-xs ${
                 isExiting ? "text-exit" : "text-enter"
               }`}
             >

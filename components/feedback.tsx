@@ -31,7 +31,7 @@ export default function FeedbackAnimation() {
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
             <motion.span
-              className="block text-sm text-neutral-800 select-none"
+              className="block text-xs text-neutral-800 select-none"
               layoutId="feedback-text"
               transition={{ duration: 0.35, ease: "easeInOut" }}
             >
@@ -45,7 +45,7 @@ export default function FeedbackAnimation() {
             <>
               {!hasText && (
                 <motion.h2
-                  className="absolute text-sm select-none text-neutral-800 opacity-100 z-40 left-[calc(50%-134px)] sm:left-[calc(50%-154px)] lg:left-[calc(50%-166px)] top-[calc(50%-79px)]"
+                  className="absolute text-xs select-none text-neutral-800 opacity-100 z-40 left-[calc(50%-134px)] sm:left-[calc(50%-154px)] lg:left-[calc(50%-166px)] top-[calc(50%-79px)]"
                   layoutId="feedback-text"
                   exit={{ opacity: 0, scale: 0.1 }}
                   transition={{
@@ -67,7 +67,7 @@ export default function FeedbackAnimation() {
                 <form className="rounded-lg bg-white w-full">
                   <textarea
                     autoFocus
-                    className="h-32 w-full resize-none rounded-t-lg bg-white p-3 text-sm text-black !outline-none"
+                    className="h-32 w-full resize-none rounded-t-lg bg-white p-3 text-xs text-black !outline-none"
                     placeholder=""
                     onChange={(e) => setHasText(e.target.value.length > 0)}
                   />

@@ -49,7 +49,7 @@ export default function CheckAnimated() {
           />
         </motion.svg>
       </motion.div>
-      <span className="text-sm text-neutral-800 select-none">
+      <span className="text-xs text-neutral-800 select-none">
         I agree to the terms and conditions
       </span>
     </motion.div>

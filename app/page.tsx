@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen py-12 px-6 md:py-24 md:px-8 text-base leading-relaxed bg-background text-foreground">
+    <div className="h-svh py-12 px-6 md:py-24 md:px-8 text-base leading-relaxed bg-background text-foreground">
       <div className="max-w-2xl mx-auto">
         <div className="space-y-8">
           <div className="space-y-4">
@@ -28,11 +28,11 @@ export default function Home() {
 
           <div className="space-y-12">
             <div>
-              <h2 className="text-xl font-medium mb-4 text-foreground ">
+              <h2 className="text-sm font-light tracking-[0.2em] uppercase text-zinc-600 mb-4">
                 experience
               </h2>
               <div className="space-y-4">
-                <div className="bg-card text-muted-foreground">
+                <div className="bg-card text-sm">
                   <a
                     href="https://vidext.io"
                     target="_blank"
@@ -41,15 +41,15 @@ export default function Home() {
                   >
                     vidext.io
                   </a>{" "}
-                  <span className="text-sm text-muted-foreground">
-                    [2024-present]
-                  </span>
+                  <span className="text-xs text-zinc-600">[2024-present]</span>
                   <br />
-                  full stack developer. built vidext.io site and contributed to
-                  boost product development.
+                  <span className="text-muted-foreground">
+                    full stack developer. built vidext.io site and contributed
+                    to boost product development.
+                  </span>
                 </div>
 
-                <div className="bg-card text-muted-foreground">
+                <div className="bg-card text-sm">
                   <a
                     href="https://chekin.com"
                     target="_blank"
@@ -58,20 +58,20 @@ export default function Home() {
                   >
                     chekin.com
                   </a>{" "}
-                  <span className="text-sm text-muted-foreground">
-                    [2023-2024]
-                  </span>
+                  <span className="text-xs text-zinc-600">[2023-2024]</span>
                   <br />
-                  front-end developer. developed guestapp with react
+                  <span className="text-muted-foreground">
+                    front-end developer. developed guestapp with react
+                  </span>
                 </div>
               </div>
             </div>
 
             <div>
-              <h2 className="text-xl font-medium mb-4 text-foreground ">
+              <h2 className="text-sm font-light tracking-[0.2em] uppercase text-zinc-600 mb-4">
                 projects
               </h2>
-              <div className="bg-card text-muted-foreground">
+              <div className="bg-card text-sm">
                 <a
                   href="https://palette.andresbr.com"
                   target="_blank"
@@ -81,26 +81,47 @@ export default function Home() {
                   palette
                 </a>
                 <br />
-                color design application that combines the creative freedom of
-                an infinite canvas with advanced color management features.
+                <span className="text-muted-foreground">
+                  color design application that combines the creative freedom of
+                  an infinite canvas with advanced color management features.
+                </span>
               </div>
             </div>
 
             <div>
-              <h2 className="text-xl font-medium mb-4 text-foreground ">
+              <h2 className="text-sm font-light tracking-[0.2em] uppercase text-zinc-600 mb-4">
                 craft ☺
               </h2>
-              <div className="bg-card text-muted-foreground">
-                <Link
-                  href="/craft"
-                  prefetch
-                  rel="noopener noreferrer"
-                  className="text-foreground font-medium hover:text-primary transition-colors underline decoration-1 underline-offset-2 hover:no-underline"
-                >
-                  craft
-                </Link>
-                <br />
-                playground for creative coding, motion, and visual experiments.
+              <div className="space-y-3">
+                <div className="bg-card text-sm">
+                  <Link
+                    href="/craft"
+                    prefetch
+                    rel="noopener noreferrer"
+                    className="text-foreground font-medium hover:text-primary transition-colors underline decoration-1 underline-offset-2 hover:no-underline"
+                  >
+                    micro animations
+                  </Link>
+                  <br />
+                  <span className="text-muted-foreground">
+                    playground for creative coding, motion, and visual
+                    experiments.
+                  </span>
+                </div>
+                <div className="bg-card text-sm">
+                  <Link
+                    href="/creative-code"
+                    prefetch
+                    rel="noopener noreferrer"
+                    className="text-foreground font-medium hover:text-primary transition-colors underline decoration-1 underline-offset-2 hover:no-underline"
+                  >
+                    fluid simulation
+                  </Link>
+                  <br />
+                  <span className="text-muted-foreground">
+                    experimenting creative coding
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -108,7 +129,12 @@ export default function Home() {
         <div className="flex mt-20 flex-col text-sm md:flex-row md:justify-between md:items-center gap-4">
           <p className="text-muted-foreground">based in spain</p>
           <div className="flex flex-wrap gap-2">
-            <span className="text-muted-foreground">contact@andresbr.com</span>
+            <a
+              href="mailto:contact@andresbr.com"
+              className="text-foreground hover:text-primary transition-colors underline decoration-1 underline-offset-2 hover:no-underline"
+            >
+              mail
+            </a>
             <span className="text-muted-foreground">/</span>
             <a
               href="https://github.com/Andresuito"

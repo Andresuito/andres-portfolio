@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="h-screen py-12 px-6 md:py-24 md:px-8 text-base leading-relaxed bg-background text-foreground">
+    <div className="h-screen py-12 px-6 md:py-24 md:px-8 text-base leading-relaxed text-foreground">
       <div className="max-w-2xl mx-auto">
         <div className="space-y-8">
           <div className="space-y-4">

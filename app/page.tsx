@@ -122,6 +122,20 @@ export default function Home() {
                     experimenting creative coding
                   </span>
                 </div>
+                <div className="bg-card text-sm">
+                  <Link
+                    href="/creative-code/tunnel"
+                    prefetch
+                    rel="noopener noreferrer"
+                    className="text-foreground font-medium hover:text-primary transition-colors underline decoration-1 underline-offset-2 hover:no-underline"
+                  >
+                    infinite tunnel
+                  </Link>
+                  <br />
+                  <span className="text-muted-foreground">
+                    endless depth canvas animation
+                  </span>
+                </div>
               </div>
             </div>
           </div>

@@ -10,9 +10,7 @@ export default function NotificationAnimation() {
   const [showBadge, setShowBadge] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [isCountAnimating, setIsCountAnimating] = useState(false);
-  const [closeTimeoutId, setCloseTimeoutId] = useState<NodeJS.Timeout | null>(
-    null
-  );
+  const [closeTimeoutId, setCloseTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   const addNotification = () => {
     setNotificationCount((prev) => {
@@ -160,28 +158,24 @@ export default function NotificationAnimation() {
         }
       `}</style>
 
-      <div className="relative flex flex-col items-center justify-center space-y-4 min-h-[200px]">
-        <div className="flex h-10 relative items-center rounded-lg bg-black shadow px-3 font-medium outline-none transition-colors">
+      <div className="relative flex min-h-[200px] flex-col items-center justify-center space-y-4">
+        <div className="relative flex h-10 items-center rounded-lg bg-black px-3 font-medium shadow outline-none transition-colors">
           {notificationCount > 0 && showBadge && (
-            <div className="absolute -top-1 -left-1 select-none bg-red-500 text-white text-[10px] rounded-full min-w-[18px] h-4 px-1 flex items-center justify-center badge-enter overflow-hidden">
+            <div className="-top-1 -left-1 badge-enter absolute flex h-4 min-w-[18px] select-none items-center justify-center overflow-hidden rounded-full bg-red-500 px-1 text-[10px] text-white">
               <span className={isCountAnimating ? "number-up" : ""}>
                 {notificationCount > 9 ? "9+" : notificationCount}
               </span>
             </div>
           )}
           <div className="relative">
-            <div
-              className={`text-white flex-shrink-0 ${isShaking ? "shake" : ""}`}
-            >
+            <div className={`flex-shrink-0 text-white ${isShaking ? "shake" : ""}`}>
               <Bell size={16} />
             </div>
           </div>
 
           {showNotification && (
             <span
-              className={`text-white select-none text-xs ${
-                isExiting ? "text-exit" : "text-enter"
-              }`}
+              className={`select-none text-white text-xs ${isExiting ? "text-exit" : "text-enter"}`}
             >
               <span className="text-inner">New notification!</span>
             </span>
@@ -190,7 +184,7 @@ export default function NotificationAnimation() {
 
         <button
           onClick={addNotification}
-          className="px-2 py-1.5 mt-5 border select-none border-neutral-200 rounded-sm text-xs"
+          className="mt-5 select-none rounded-sm border border-neutral-200 px-2 py-1.5 text-xs"
         >
           Send Notification
         </button>

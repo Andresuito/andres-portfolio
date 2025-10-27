@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(bun remove:*)",
+      "Bash(bun add -D @biomejs/biome)",
+      "Bash(bun run check:fix)",
+      "Bash(bun run build)"
     ],
     "deny": []
   }

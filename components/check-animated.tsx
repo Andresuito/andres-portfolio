@@ -9,11 +9,11 @@ export default function CheckAnimated() {
   return (
     <motion.div
       onClick={() => setIsChecked(!isChecked)}
-      className="flex items-center justify-center gap-3 cursor-pointer min-h-[200px]"
+      className="flex min-h-[200px] cursor-pointer items-center justify-center gap-3"
       transition={{ duration: 0.1 }}
     >
       <motion.div
-        className={`w-5 h-5 border-2 rounded transition-all duration-200 ease-in-out flex items-center justify-center ${
+        className={`flex h-5 w-5 items-center justify-center rounded border-2 transition-all duration-200 ease-in-out ${
           isChecked
             ? "border-black bg-black"
             : "border-neutral-300 bg-white hover:border-neutral-400"
@@ -49,7 +49,7 @@ export default function CheckAnimated() {
           />
         </motion.svg>
       </motion.div>
-      <span className="text-xs text-neutral-800 select-none">
+      <span className="select-none text-neutral-800 text-xs">
         I agree to the terms and conditions
       </span>
     </motion.div>

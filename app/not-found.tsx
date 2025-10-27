@@ -1,16 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "404 - Page Not Found | Andrés B.R",
-  description: "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
+  description:
+    "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
   robots: {
     index: false,
     follow: false,
   },
   openGraph: {
     title: "404 - Page Not Found | Andrés B.R",
-    description: "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
+    description:
+      "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
     url: "https://andresbr.com/404",
     siteName: "Andrés B.R",
     images: [
@@ -27,7 +29,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "404 - Page Not Found | Andrés B.R",
-    description: "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
+    description:
+      "The page you're looking for doesn't exist. Return to the homepage to explore my web development portfolio and projects.",
     images: [
       {
         url: "/api/og?title=Web Developer&subtitle=Andrés B.R",
@@ -41,10 +44,10 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="max-w-2xl mx-auto px-4 sm:px-6 md:px-8 my-6 sm:my-8 lg:my-10">
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+    <section className="mx-auto my-6 max-w-2xl px-4 sm:my-8 sm:px-6 md:px-8 lg:my-10">
+      <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">
         <div className="mb-12">
-          <h1 className="text-8xl bg-black text-white w-fit p-1 px-3 mx-auto sm:text-9xl font-bold mb-8 leading-none">
+          <h1 className="mx-auto mb-8 w-fit bg-black p-1 px-3 font-bold text-8xl text-white leading-none sm:text-9xl">
             404
           </h1>
         </div>
@@ -53,13 +56,13 @@ export default function NotFound() {
           <Link
             prefetch
             href="/"
-            className="inline-block text-base sm:text-lg ml-1 relative overflow-hidden"
+            className="relative ml-1 inline-block overflow-hidden text-base sm:text-lg"
           >
             <div className="relative">
-              <span className="block text-base sm:text-lg group-hover:-translate-y-full transition-transform duration-500 ease-out delay-200">
+              <span className="group-hover:-translate-y-full block text-base transition-transform delay-200 duration-500 ease-out sm:text-lg">
                 Go back home
               </span>
-              <span className="absolute top-0 left-0 text-base sm:text-lg translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out delay-200">
+              <span className="absolute top-0 left-0 translate-y-full text-base transition-transform delay-200 duration-500 ease-out group-hover:translate-y-0 sm:text-lg">
                 Take me home →
               </span>
             </div>

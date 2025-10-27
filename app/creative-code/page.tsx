@@ -1,26 +1,26 @@
 "use client";
 
-import FluidSimulation from "@/components/fluid-simulation";
 import Link from "next/link";
+import FluidSimulation from "@/components/fluid-simulation";
 
 export default function Home() {
   return (
-    <div className="relative w-full h-screen bg-white overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden bg-white">
       <FluidSimulation />
 
-      <div className="fixed top-8 left-8 z-50 pointer-events-none">
+      <div className="pointer-events-none fixed top-8 left-8 z-50">
         <Link
           href="/"
-          className="pointer-events-auto text-3xl md:text-4xl font-medium tracking-tight bg-primary text-primary-foreground px-3 py-1 inline-block mb-4"
+          className="pointer-events-auto mb-4 inline-block bg-primary px-3 py-1 font-medium text-3xl text-primary-foreground tracking-tight md:text-4xl"
         >
           ↫ home
         </Link>
-        <h1 className="text-sm font-light tracking-[0.3em] text-zinc-800 uppercase mb-2">
+        <h1 className="mb-2 font-light text-sm text-zinc-800 uppercase tracking-[0.3em]">
           Navier-Stokes Fluid Simulation
         </h1>
-        <p className="text-xs text-zinc-600 font-mono leading-relaxed">
+        <p className="font-mono text-xs text-zinc-600 leading-relaxed">
           Real-time 2D viscous flow solver
-          <span className="block text-zinc-500 mt-1">
+          <span className="mt-1 block text-zinc-500">
             Move cursor to interact with the fluid field
           </span>
         </p>

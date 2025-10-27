@@ -51,26 +51,20 @@ export default function InfiniteTunnel() {
         const scale = 1 / (depth + 0.01);
         const radius = scale * (maxDim * 0.015);
 
-        if (radius > maxDim * MAX_RADIUS_MULTIPLIER || radius < MIN_RADIUS)
-          continue;
+        if (radius > maxDim * MAX_RADIUS_MULTIPLIER || radius < MIN_RADIUS) continue;
 
         const hue = BASE_HUE + ((depth * HUE_RANGE + time * 10) % HUE_RANGE);
         const brightness = 75 - depth * 30;
 
         for (let j = 0; j < SEGMENTS; j++) {
-          const angleStart =
-            (j / SEGMENTS) * Math.PI * 2 + time * ROTATION_SPEED;
-          const angleEnd =
-            ((j + 1) / SEGMENTS) * Math.PI * 2 + time * ROTATION_SPEED;
+          const angleStart = (j / SEGMENTS) * Math.PI * 2 + time * ROTATION_SPEED;
+          const angleEnd = ((j + 1) / SEGMENTS) * Math.PI * 2 + time * ROTATION_SPEED;
           const isEven = j % 2 === 0;
 
           let alpha = Math.min(1, depth * 2);
 
           if (radius > maxDim * FADE_START) {
-            const fadeOut = Math.max(
-              0,
-              1 - (radius - maxDim * FADE_START) / (maxDim * FADE_START)
-            );
+            const fadeOut = Math.max(0, 1 - (radius - maxDim * FADE_START) / (maxDim * FADE_START));
             alpha *= fadeOut;
           }
 
@@ -105,7 +99,7 @@ export default function InfiniteTunnel() {
         maxDim * 0.4,
         centerX,
         centerY,
-        maxDim * 0.9
+        maxDim * 0.9,
       );
       vignette.addColorStop(0, "rgba(255, 255, 255, 0)");
       vignette.addColorStop(0.6, "rgba(255, 255, 255, 0.2)");
@@ -124,24 +118,22 @@ export default function InfiniteTunnel() {
   }, []);
 
   return (
-    <div className="relative w-full h-screen bg-white overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden bg-white">
       <canvas ref={canvasRef} className="absolute inset-0" />
 
-      <div className="fixed top-8 left-8 z-50 pointer-events-none">
+      <div className="pointer-events-none fixed top-8 left-8 z-50">
         <Link
           href="/"
-          className="pointer-events-auto text-3xl md:text-4xl font-medium tracking-tight bg-primary text-primary-foreground px-3 py-1 inline-block mb-4"
+          className="pointer-events-auto mb-4 inline-block bg-primary px-3 py-1 font-medium text-3xl text-primary-foreground tracking-tight md:text-4xl"
         >
           ↫ home
         </Link>
-        <h1 className="text-sm font-light tracking-[0.3em] text-zinc-800 uppercase mb-2">
+        <h1 className="mb-2 font-light text-sm text-zinc-800 uppercase tracking-[0.3em]">
           Infinite Tunnel
         </h1>
-        <p className="text-xs text-zinc-600 font-mono leading-relaxed">
+        <p className="font-mono text-xs text-zinc-600 leading-relaxed">
           Endless depth experience
-          <span className="block text-zinc-500 mt-1">
-            Canvas animation experiment
-          </span>
+          <span className="mt-1 block text-zinc-500">Canvas animation experiment</span>
         </p>
       </div>
     </div>

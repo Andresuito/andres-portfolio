@@ -62,28 +62,17 @@ export default function FluidSimulation() {
       x[IX(0, 0)] = 0.5 * (x[IX(1, 0)] + x[IX(0, 1)]);
       x[IX(0, rows - 1)] = 0.5 * (x[IX(1, rows - 1)] + x[IX(0, rows - 2)]);
       x[IX(cols - 1, 0)] = 0.5 * (x[IX(cols - 2, 0)] + x[IX(cols - 1, 1)]);
-      x[IX(cols - 1, rows - 1)] =
-        0.5 * (x[IX(cols - 2, rows - 1)] + x[IX(cols - 1, rows - 2)]);
+      x[IX(cols - 1, rows - 1)] = 0.5 * (x[IX(cols - 2, rows - 1)] + x[IX(cols - 1, rows - 2)]);
     };
 
-    const diffuse = (
-      b: number,
-      x: number[],
-      x0: number[],
-      diff: number,
-      dt: number
-    ) => {
+    const diffuse = (b: number, x: number[], x0: number[], diff: number, dt: number) => {
       const a = dt * diff * (cols - 2) * (rows - 2);
       for (let k = 0; k < ITERATIONS; k++) {
         for (let j = 1; j < rows - 1; j++) {
           for (let i = 1; i < cols - 1; i++) {
             x[IX(i, j)] =
               (x0[IX(i, j)] +
-                a *
-                  (x[IX(i + 1, j)] +
-                    x[IX(i - 1, j)] +
-                    x[IX(i, j + 1)] +
-                    x[IX(i, j - 1)])) /
+                a * (x[IX(i + 1, j)] + x[IX(i - 1, j)] + x[IX(i, j + 1)] + x[IX(i, j - 1)])) /
               (1 + 4 * a);
           }
         }
@@ -91,12 +80,7 @@ export default function FluidSimulation() {
       }
     };
 
-    const project = (
-      velocX: number[],
-      velocY: number[],
-      p: number[],
-      div: number[]
-    ) => {
+    const project = (velocX: number[], velocY: number[], p: number[], div: number[]) => {
       for (let j = 1; j < rows - 1; j++) {
         for (let i = 1; i < cols - 1; i++) {
           div[IX(i, j)] =
@@ -143,7 +127,7 @@ export default function FluidSimulation() {
       d0: number[],
       velocX: number[],
       velocY: number[],
-      dt: number
+      dt: number,
     ) => {
       const dtx = dt * (cols - 2);
       const dty = dt * (rows - 2);
@@ -195,12 +179,7 @@ export default function FluidSimulation() {
       density[IX(x, y)] += amount;
     };
 
-    const addVelocity = (
-      x: number,
-      y: number,
-      amountX: number,
-      amountY: number
-    ) => {
+    const addVelocity = (x: number, y: number, amountX: number, amountY: number) => {
       const index = IX(x, y);
       vx[index] += amountX;
       vy[index] += amountY;
@@ -225,10 +204,7 @@ export default function FluidSimulation() {
             const saturation = Math.min(100, 60 + speed * 40);
             const lightness = Math.min(70, 30 + d * 40);
 
-            ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${Math.min(
-              1,
-              d * 0.8
-            )})`;
+            ctx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${Math.min(1, d * 0.8)})`;
             ctx.fillRect(x, y, cellSize + 1, cellSize + 1);
           }
         }
@@ -258,39 +234,19 @@ export default function FluidSimulation() {
         addDensity(i, j, DENSITY_AMOUNT);
 
         if (i > 0) {
-          addVelocity(
-            i - 1,
-            j,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i - 1, j, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i - 1, j, NEIGHBOR_DENSITY);
         }
         if (i < cols - 1) {
-          addVelocity(
-            i + 1,
-            j,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i + 1, j, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i + 1, j, NEIGHBOR_DENSITY);
         }
         if (j > 0) {
-          addVelocity(
-            i,
-            j - 1,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i, j - 1, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i, j - 1, NEIGHBOR_DENSITY);
         }
         if (j < rows - 1) {
-          addVelocity(
-            i,
-            j + 1,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i, j + 1, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i, j + 1, NEIGHBOR_DENSITY);
         }
       }
@@ -322,39 +278,19 @@ export default function FluidSimulation() {
         addDensity(i, j, DENSITY_AMOUNT);
 
         if (i > 0) {
-          addVelocity(
-            i - 1,
-            j,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i - 1, j, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i - 1, j, NEIGHBOR_DENSITY);
         }
         if (i < cols - 1) {
-          addVelocity(
-            i + 1,
-            j,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i + 1, j, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i + 1, j, NEIGHBOR_DENSITY);
         }
         if (j > 0) {
-          addVelocity(
-            i,
-            j - 1,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i, j - 1, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i, j - 1, NEIGHBOR_DENSITY);
         }
         if (j < rows - 1) {
-          addVelocity(
-            i,
-            j + 1,
-            amountX * MOUSE_VELOCITY_MULT,
-            amountY * MOUSE_VELOCITY_MULT
-          );
+          addVelocity(i, j + 1, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
           addDensity(i, j + 1, NEIGHBOR_DENSITY);
         }
       }
@@ -373,11 +309,5 @@ export default function FluidSimulation() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="w-full h-full"
-      style={{ cursor: "none" }}
-    />
-  );
+  return <canvas ref={canvasRef} className="h-full w-full" style={{ cursor: "none" }} />;
 }

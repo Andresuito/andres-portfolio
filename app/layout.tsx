@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistMono.className} bg-background text-[#32404f] relative antialiased scroll-smooth`}
+        className={`${geistMono.className} relative scroll-smooth bg-background text-[#32404f] antialiased`}
       >
         {children}
         <Analytics />

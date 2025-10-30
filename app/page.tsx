@@ -139,7 +139,7 @@ export default function Home() {
           <p className="text-muted-foreground">based in spain</p>
           <div className="flex flex-wrap gap-2">
             <a
-              href="mailto:contact@andresbr.com"
+              href="mailto:andres@anticommon.com"
               className="text-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-primary hover:no-underline"
             >
               mail

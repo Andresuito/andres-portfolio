@@ -183,6 +183,7 @@ export default function NotificationAnimation() {
         </div>
 
         <button
+          type="button"
           onClick={addNotification}
           className="mt-5 select-none rounded-sm border border-neutral-200 px-2 py-1.5 text-xs"
         >

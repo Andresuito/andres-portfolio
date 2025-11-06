@@ -41,7 +41,7 @@ export default function Home() {
                   >
                     vidext.io
                   </a>{" "}
-                  <span className="text-xs text-zinc-600">[2024-present]</span>
+                  <span className="text-xs text-zinc-600">[2024-2025]</span>
                   <br />
                   <span className="text-muted-foreground">
                     full stack developer. built vidext.io site and contributed to boost product

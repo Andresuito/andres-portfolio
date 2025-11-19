@@ -71,20 +71,36 @@ export default function Home() {
               <h2 className="mb-4 font-light text-sm text-zinc-600 uppercase tracking-[0.2em]">
                 projects
               </h2>
-              <div className="bg-card text-sm">
-                <a
-                  href="https://palette.andresbr.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-primary hover:no-underline"
-                >
-                  palette
-                </a>
-                <br />
-                <span className="text-muted-foreground">
-                  color design application that combines the creative freedom of an infinite canvas
-                  with advanced color management features.
-                </span>
+              <div className="space-y-3">
+                <div className="bg-card text-sm">
+                  <a
+                    href="https://www.ggsalt.work"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-primary hover:no-underline"
+                  >
+                    ggsalt
+                  </a>
+                  <br />
+                  <span className="text-muted-foreground">
+                    custom portfolio website for a multidisciplinary graphic designer
+                  </span>
+                </div>
+                <div className="bg-card text-sm">
+                  <a
+                    href="https://palette.andresbr.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-primary hover:no-underline"
+                  >
+                    palette
+                  </a>
+                  <br />
+                  <span className="text-muted-foreground">
+                    color design application that combines the creative freedom of an infinite
+                    canvas with advanced color management features.
+                  </span>
+                </div>
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import path from 'path'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
@@ -7,13 +8,18 @@ import tailwindcss from '@tailwindcss/vite'
 import { cloudflare } from '@cloudflare/vite-plugin'
 
 const config = defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
   plugins: [
-    devtools(),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
-    // this is the plugin that enables path aliases
+    // run tsconfig paths plugin early so alias resolution is available to subsequent plugins
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
+    devtools(),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tailwindcss(),
     tanstackStart(),
     viteReact(),

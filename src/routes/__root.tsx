@@ -8,7 +8,7 @@ export const Route = createRootRoute({
     const s = seo({
       title: "Andrés B.R - Web Developer",
       description:
-        "Experienced web developer specializing in React, Next.js, and modern web technologies. Creating beautiful, interactive web experiences and animations.",
+        "Experienced web developer specializing in React, Next.js, Tanstack and modern web technologies. Creating beautiful, interactive web experiences and animations.",
     });
 
     return {

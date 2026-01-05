@@ -24,13 +24,18 @@ function App() {
                 experience
               </h2>
               <div className="space-y-4">
-                <div className="select-none bg-card text-sm blur-xs">
-                  <span className="font-medium text-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-primary hover:no-underline">
+                <div className="select-none bg-card text-sm">
+                  <a
+                    href="https://anticommon.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-primary hover:no-underline"
+                  >
                     anticommon.com
-                  </span>{" "}
-                  <span className="text-xs text-zinc-600">[2026-present]</span>
+                  </a>{" "}
+                  <span className="text-xs text-zinc-600">[present]</span>
                   <br />
-                  <span className="text-muted-foreground">i have to change this :)</span>
+                  <span className="text-muted-foreground">founder & lead developer</span>
                 </div>
                 <div className="bg-card text-sm">
                   <a

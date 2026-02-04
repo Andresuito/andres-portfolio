@@ -1,5 +1,5 @@
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { NotFound } from "@/components/NotFound";
+import { NotFound } from "@/components/not-found";
 import { ThemeProvider } from "@/components/theme-provider";
 import { useGlobalClickSounds } from "@/hooks/useSounds";
 import { getThemeServerFn } from "@/lib/theme";

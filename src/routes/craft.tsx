@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import CheckAnimated from "@/components/check-animated";
-import FeedbackAnimation from "@/components/feedback";
-import NotificationAnimation from "@/components/notification";
+import { CheckAnimated } from "@/components/check-animated";
+import { FeedbackAnimation } from "@/components/feedback";
+import { NotificationAnimation } from "@/components/notification";
 import { ThemeFooter } from "@/components/theme-footer";
 import { seo } from "@/lib/utils/seo";
 

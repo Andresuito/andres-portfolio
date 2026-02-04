@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import FluidSimulation from "@/components/fluid-simulation";
+import { FluidSimulation } from "@/components/fluid-simulation";
 import { ThemeFooter } from "@/components/theme-footer";
 import { seo } from "@/lib/utils/seo";
 

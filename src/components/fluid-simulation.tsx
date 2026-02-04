@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useTheme } from "@/components/theme-provider";
 
-export default function FluidSimulation() {
+export function FluidSimulation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
@@ -61,7 +61,6 @@ export default function FluidSimulation() {
           return "#111111";
         case "bucket":
           return "#620000";
-        case "light":
         default:
           return "#ffffff";
       }
@@ -73,7 +72,6 @@ export default function FluidSimulation() {
           return { hueBase: 200, hueRange: 60 };
         case "bucket":
           return { hueBase: 0, hueRange: 30 };
-        case "light":
         default:
           return { hueBase: 180, hueRange: 50 };
       }

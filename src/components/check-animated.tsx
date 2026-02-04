@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 
-export default function CheckAnimated() {
+export function CheckAnimated() {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -21,6 +21,8 @@ export default function CheckAnimated() {
           viewBox="0 0 24 24"
           fill="none"
           className="text-white"
+          role="img"
+          aria-label="Checkmark"
           initial={{ opacity: 0 }}
           animate={{ opacity: isChecked ? 1 : 0 }}
           transition={{

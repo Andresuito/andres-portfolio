@@ -2,7 +2,7 @@ import { Frown, Meh, Smile } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function FeedbackAnimation() {
+export function FeedbackAnimation() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hasText, setHasText] = useState(false);
   const [selectedFace, setSelectedFace] = useState<string | null>(null);
@@ -10,12 +10,14 @@ export default function FeedbackAnimation() {
   return (
     <div className="relative flex min-h-50 items-center justify-center">
       {isExpanded && (
-        <div
-          className="fixed inset-0 z-10"
+        <button
+          type="button"
+          className="fixed inset-0 z-10 cursor-default bg-transparent"
           onClick={() => {
             setIsExpanded(false);
             setHasText(false);
           }}
+          aria-label="Close feedback form"
         />
       )}
       <div className="relative z-20 flex items-center justify-center">
@@ -64,7 +66,6 @@ export default function FeedbackAnimation() {
               >
                 <form className="w-full rounded-lg bg-background bucket:bg-[#620000] dark:bg-background">
                   <textarea
-                    autoFocus
                     className="!outline-none h-32 w-full resize-none rounded-t-lg bg-background bucket:bg-[#620000] p-3 bucket:text-[#FF9A9A] text-foreground text-xs dark:bg-background dark:text-foreground"
                     placeholder=""
                     onChange={(e) => setHasText(e.target.value.length > 0)}
@@ -77,6 +78,8 @@ export default function FeedbackAnimation() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                       preserveAspectRatio="none"
+                      role="img"
+                      aria-label="Divider line"
                     >
                       <path
                         d="M0 1H352"

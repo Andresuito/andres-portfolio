@@ -1,7 +1,7 @@
 import { Bell } from "lucide-react";
 import { useState } from "react";
 
-export default function NotificationAnimation() {
+export function NotificationAnimation() {
   const [notificationCount, setNotificationCount] = useState(0);
   const [showNotification, setShowNotification] = useState(false);
   const [isShaking, setIsShaking] = useState(false);

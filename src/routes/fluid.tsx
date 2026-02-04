@@ -38,7 +38,7 @@ function CreativeCode() {
 
           <div className="flex w-full flex-1 flex-col">
             <div className="pointer-events-none">
-              <h1 className="mb-2 font-light bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
+              <h1 className="mb-2 bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
                 Creative coding playground
               </h1>
               <p className="bucket:text-[#ffb3b3] text-5xl dark:text-primary">

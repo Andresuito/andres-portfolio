@@ -32,7 +32,7 @@ function Craft() {
           <div className="relative">
             <Link
               to="/"
-              className="relative inline-block w-fit text-nowrap text-2xl before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-current before:transition-all before:duration-300 hover:before:w-full"
+              className="relative inline-block w-fit text-nowrap font-light text-2xl before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-current before:transition-all before:duration-300 hover:before:w-full"
             >
               Go back
             </Link>
@@ -40,7 +40,7 @@ function Craft() {
 
           <div className="w-full">
             <div className="pointer-events-none">
-              <h1 className="mb-2 font-light bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
+              <h1 className="mb-2 bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
                 Microinteractions
               </h1>
               <p className="bucket:text-[#ffb3b3] text-5xl dark:text-primary">

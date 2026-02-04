@@ -9,13 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as CreativeCodeRouteImport } from './routes/creative-code'
+import { Route as FluidRouteImport } from './routes/fluid'
 import { Route as CraftRouteImport } from './routes/craft'
 import { Route as IndexRouteImport } from './routes/index'
 
-const CreativeCodeRoute = CreativeCodeRouteImport.update({
-  id: '/creative-code',
-  path: '/creative-code',
+const FluidRoute = FluidRouteImport.update({
+  id: '/fluid',
+  path: '/fluid',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CraftRoute = CraftRouteImport.update({
@@ -32,40 +32,40 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/craft': typeof CraftRoute
-  '/creative-code': typeof CreativeCodeRoute
+  '/fluid': typeof FluidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/craft': typeof CraftRoute
-  '/creative-code': typeof CreativeCodeRoute
+  '/fluid': typeof FluidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/craft': typeof CraftRoute
-  '/creative-code': typeof CreativeCodeRoute
+  '/fluid': typeof FluidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/craft' | '/creative-code'
+  fullPaths: '/' | '/craft' | '/fluid'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/craft' | '/creative-code'
-  id: '__root__' | '/' | '/craft' | '/creative-code'
+  to: '/' | '/craft' | '/fluid'
+  id: '__root__' | '/' | '/craft' | '/fluid'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CraftRoute: typeof CraftRoute
-  CreativeCodeRoute: typeof CreativeCodeRoute
+  FluidRoute: typeof FluidRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/creative-code': {
-      id: '/creative-code'
-      path: '/creative-code'
-      fullPath: '/creative-code'
-      preLoaderRoute: typeof CreativeCodeRouteImport
+    '/fluid': {
+      id: '/fluid'
+      path: '/fluid'
+      fullPath: '/fluid'
+      preLoaderRoute: typeof FluidRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/craft': {
@@ -88,7 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CraftRoute: CraftRoute,
-  CreativeCodeRoute: CreativeCodeRoute,
+  FluidRoute: FluidRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -49,7 +49,7 @@ export default function NotificationAnimation() {
 
   return (
     <>
-      <style jsx>{`
+      <style>{`
         .shake {
           animation: shake 0.6s ease-in-out;
         }
@@ -157,23 +157,25 @@ export default function NotificationAnimation() {
       `}</style>
 
       <div className="relative flex min-h-50 flex-col items-center justify-center space-y-4">
-        <div className="relative flex h-10 items-center rounded-lg bg-black px-3 font-medium shadow outline-none transition-colors">
+        <div className="relative flex h-10 items-center rounded-lg bg-primary bucket:bg-[#FF9A9A] px-3 font-medium shadow outline-none transition-colors dark:bg-white">
           {notificationCount > 0 && showBadge && (
-            <div className="badge-enter absolute -top-1 -left-1 flex h-4 min-w-4.5 select-none items-center justify-center overflow-hidden rounded-full bg-red-500 px-1 text-[10px] text-white">
+            <div className="badge-enter absolute -top-1 -left-1 flex h-4 min-w-4.5 select-none items-center justify-center overflow-hidden rounded-full bg-destructive bucket:bg-red-600 px-1 text-[10px] text-white dark:bg-red-500">
               <span className={isCountAnimating ? "number-up" : ""}>
                 {notificationCount > 9 ? "9+" : notificationCount}
               </span>
             </div>
           )}
           <div className="relative">
-            <div className={`shrink-0 text-white ${isShaking ? "shake" : ""}`}>
+            <div
+              className={`shrink-0 bucket:text-[#620000] text-primary-foreground dark:text-[#111111] ${isShaking ? "shake" : ""}`}
+            >
               <Bell size={16} />
             </div>
           </div>
 
           {showNotification && (
             <span
-              className={`select-none text-white text-xs ${isExiting ? "text-exit" : "text-enter"}`}
+              className={`select-none bucket:text-[#620000] text-primary-foreground text-xs dark:text-[#111111] ${isExiting ? "text-exit" : "text-enter"}`}
             >
               <span className="text-inner">New notification!</span>
             </span>
@@ -183,7 +185,7 @@ export default function NotificationAnimation() {
         <button
           type="button"
           onClick={addNotification}
-          className="mt-5 select-none rounded-sm border border-neutral-200 px-2 py-1.5 text-xs"
+          className="mt-5 select-none rounded-sm border border-border bucket:border-[#FF9A9A]/20 bg-background bucket:bg-[#620000] px-2 py-1.5 bucket:text-[#FF9A9A] text-foreground text-xs transition-colors bucket:hover:bg-[#7a1a1a] hover:bg-muted dark:border-[#2a2a2a] dark:bg-[#1a1a1a] dark:text-white dark:hover:bg-[#2a2a2a]"
         >
           Send Notification
         </button>

@@ -1,21 +1,29 @@
 import { useEffect, useRef } from "react";
+import { useTheme } from "@/components/theme-provider";
 
 export default function FluidSimulation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
 
     const ctx = canvas.getContext("2d", { alpha: false });
     if (!ctx) return;
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    const getDimensions = () => {
+      const rect = container.getBoundingClientRect();
+      return { width: rect.width, height: rect.height };
+    };
+
+    let { width, height } = getDimensions();
     canvas.width = width;
     canvas.height = height;
 
-    const RESOLUTION = 128;
+    const RESOLUTION = 64;
     const DIFFUSION = 0.0001;
     const VISCOSITY = 0.0001;
     const TIME_STEP = 0.1;
@@ -36,10 +44,40 @@ export default function FluidSimulation() {
     const density = Array(cols * rows).fill(0);
     const density0 = Array(cols * rows).fill(0);
 
+    const getCanvasOffset = () => {
+      const rect = canvas.getBoundingClientRect();
+      return { left: rect.left, top: rect.top };
+    };
+
+    let canvasOffset = getCanvasOffset();
     let mouseX = width / 2;
     let mouseY = height / 2;
     let pmouseX = width / 2;
     let pmouseY = height / 2;
+
+    const getBackgroundColor = () => {
+      switch (theme) {
+        case "dark":
+          return "#111111";
+        case "bucket":
+          return "#620000";
+        case "light":
+        default:
+          return "#ffffff";
+      }
+    };
+
+    const getFluidColors = () => {
+      switch (theme) {
+        case "dark":
+          return { hueBase: 200, hueRange: 60 };
+        case "bucket":
+          return { hueBase: 0, hueRange: 30 };
+        case "light":
+        default:
+          return { hueBase: 180, hueRange: 50 };
+      }
+    };
 
     const IX = (x: number, y: number) => {
       x = Math.max(0, Math.min(cols - 1, x));
@@ -184,7 +222,10 @@ export default function FluidSimulation() {
     };
 
     const render = () => {
-      ctx.fillStyle = "#ffffff";
+      const bgColor = getBackgroundColor();
+      const fluidColors = getFluidColors();
+
+      ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, width, height);
 
       for (let j = 0; j < rows; j++) {
@@ -198,7 +239,7 @@ export default function FluidSimulation() {
             const vyVal = vy[IX(i, j)];
             const speed = Math.sqrt(vxVal * vxVal + vyVal * vyVal);
 
-            const hue = 180 + speed * 50;
+            const hue = fluidColors.hueBase + speed * fluidColors.hueRange;
             const saturation = Math.min(100, 60 + speed * 40);
             const lightness = Math.min(70, 30 + d * 40);
 
@@ -216,10 +257,11 @@ export default function FluidSimulation() {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
+      canvasOffset = getCanvasOffset();
       pmouseX = mouseX;
       pmouseY = mouseY;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseX = e.clientX - canvasOffset.left;
+      mouseY = e.clientY - canvasOffset.top;
 
       const i = Math.floor(mouseX / cellSize);
       const j = Math.floor(mouseY / cellSize);
@@ -248,22 +290,16 @@ export default function FluidSimulation() {
           addDensity(i, j + 1, NEIGHBOR_DENSITY);
         }
       }
-    };
-
-    const handleResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       e.preventDefault();
+      canvasOffset = getCanvasOffset();
       const touch = e.touches[0];
       pmouseX = mouseX;
       pmouseY = mouseY;
-      mouseX = touch.clientX;
-      mouseY = touch.clientY;
+      mouseX = touch.clientX - canvasOffset.left;
+      mouseY = touch.clientY - canvasOffset.top;
 
       const i = Math.floor(mouseX / cellSize);
       const j = Math.floor(mouseY / cellSize);
@@ -294,18 +330,36 @@ export default function FluidSimulation() {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-    window.addEventListener("resize", handleResize);
+    const resizeObserver = new ResizeObserver(() => {
+      const newDimensions = getDimensions();
+      width = newDimensions.width;
+      height = newDimensions.height;
+      canvas.width = width;
+      canvas.height = height;
+      canvasOffset = getCanvasOffset();
+    });
+
+    resizeObserver.observe(container);
+
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     animate();
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  }, [theme]);
 
-  return <canvas ref={canvasRef} className="h-full w-full" style={{ cursor: "none" }} />;
+  return (
+    <div ref={containerRef} className="relative h-full w-full overflow-hidden rounded-lg">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 block h-full w-full"
+        style={{ cursor: "crosshair" }}
+      />
+    </div>
+  );
 }

@@ -11,13 +11,9 @@ export default function CheckAnimated() {
       transition={{ duration: 0.1 }}
     >
       <motion.div
-        className={`flex h-5 w-5 items-center justify-center rounded border-2 transition-all duration-200 ease-in-out ${
-          isChecked
-            ? "border-black bg-black"
-            : "border-neutral-300 bg-white hover:border-neutral-400"
-        }`}
+        className="flex h-5 w-5 items-center justify-center rounded border-2 transition-all duration-200 ease-in-out"
         whileTap={{ scale: 0.9 }}
-        transition={{ duration: 0.1 }}
+        transition={{ duration: 0.02 }}
       >
         <motion.svg
           width="14"
@@ -47,9 +43,7 @@ export default function CheckAnimated() {
           />
         </motion.svg>
       </motion.div>
-      <span className="select-none text-neutral-800 text-xs">
-        I agree to the terms and conditions
-      </span>
+      <span className="select-none text-xs">I agree to the terms and conditions</span>
     </motion.div>
   );
 }

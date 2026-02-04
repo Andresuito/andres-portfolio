@@ -3,21 +3,26 @@ import { NotFound } from "@/components/NotFound";
 import { ThemeProvider } from "@/components/theme-provider";
 import { useGlobalClickSounds } from "@/hooks/useSounds";
 import { getThemeServerFn } from "@/lib/theme";
-import { seo } from "@/lib/utils/seo";
+import { personSchema, seo } from "@/lib/utils/seo";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
   head: () => {
     const s = seo({
-      title: "Andrés B.R - Web Developer",
+      title: "Andrés B.R | Web Developer",
       description:
-        "Experienced web developer specializing in React, Next.js, Tanstack and modern web technologies. Creating beautiful, interactive web experiences and animations.",
+        "I'm a web developer specializing in building attractive, dynamic and functional websites. I use code to turn ideas into seamless web experiences, specializing in smooth animations and interactive components.",
+      keywords:
+        "web developer, React developer, Next.js, TypeScript, frontend developer, full stack developer, JavaScript, web animations, portfolio",
     });
+
+    const schema = personSchema();
 
     return {
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#111111" },
         ...s.meta,
       ],
       links: [
@@ -29,7 +34,16 @@ export const Route = createRootRoute({
           rel: "stylesheet",
           href: "https://use.typekit.net/klu5mct.css",
         },
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        { rel: "manifest", href: "/site.webmanifest" },
         ...(s.links || []),
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify(schema),
+        },
       ],
     };
   },

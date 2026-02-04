@@ -3,6 +3,7 @@ import { Moon, PaintBucket, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/components/theme-provider";
+import { seo } from "@/lib/utils/seo";
 
 function useSpainTime() {
   const [, setTick] = useState(0);
@@ -20,7 +21,24 @@ function useSpainTime() {
   });
 }
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({
+  component: App,
+  head: () => {
+    const s = seo({
+      title: "Andrés B.R | Web Developer",
+      description:
+        "I'm a web developer specializing in building attractive, dynamic and functional websites. I use code to turn ideas into seamless web experiences, specializing in smooth animations and interactive components.",
+      keywords:
+        "web developer, React developer, Next.js, TypeScript, frontend developer, full stack developer, JavaScript, web animations, portfolio, Spain",
+      url: "https://andresbr.com",
+    });
+
+    return {
+      meta: [...s.meta],
+      links: [...(s.links || [])],
+    };
+  },
+});
 
 type Section = "about" | "work" | "play" | "contact";
 
@@ -68,7 +86,7 @@ function App() {
 
   const workItems = [
     {
-      role: "Lead Developer",
+      role: "Founder",
       company: "anticommon.com",
       url: "https://anticommon.com",
       period: "Present",
@@ -94,7 +112,7 @@ function App() {
     about: {
       title: "About",
       description:
-        "I'm a full stack web developer specializing in building attractive, dynamic and functional websites. I use code to turn ideas into seamless web experiences, specializing in smooth animations and interactive components.",
+        "I'm a web developer specializing in building attractive, dynamic and functional websites. I use code to turn ideas into seamless web experiences, specializing in smooth animations and interactive components.",
     },
     work: {
       title: "Work",

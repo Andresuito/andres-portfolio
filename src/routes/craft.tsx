@@ -9,10 +9,11 @@ export const Route = createFileRoute("/craft")({
   component: Craft,
   head: () => {
     const s = seo({
-      title: "Andrés B.R - Craft",
-      description: "Playground for creative coding, motion, and visual experiments.",
+      title: "UI Microinteractions & Animation Components | Andrés B.R",
+      description:
+        "Explore interactive UI components including feedback forms, animated checkboxes, and notification systems. A collection of React micro-interactions built with Framer Motion.",
       keywords:
-        "web developer, React developer, Next.js, JavaScript, TypeScript, web animations, web development",
+        "UI components, React animations, microinteractions, Framer Motion, feedback UI, notification components, checkbox animation, frontend components",
       url: "https://andresbr.com/craft",
     });
 
@@ -42,7 +43,7 @@ function Craft() {
               <h1 className="mb-2 font-light bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
                 Microinteractions
               </h1>
-              <p className="bucket:text-[#ffb3b3] text-5xl text-muted-foreground dark:text-primary">
+              <p className="bucket:text-[#ffb3b3] text-5xl dark:text-primary">
                 An interactive sandbox exploring UI feedback patterns such as toggles, checkboxes,
                 and notification states.
               </p>

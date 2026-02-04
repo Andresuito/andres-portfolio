@@ -7,11 +7,12 @@ export const Route = createFileRoute("/fluid")({
   component: CreativeCode,
   head: () => {
     const s = seo({
-      title: "Andrés B.R - Creative Code",
-      description: "Playground for creative coding, motion, and visual experiments.",
+      title: "Fluid Simulation with Navier-Stokes | Andrés B.R",
+      description:
+        "Interactive 2D fluid dynamics simulation using Navier-Stokes equations. A creative coding experiment with real-time particle flow and mouse interaction built with React and Canvas API.",
       keywords:
-        "web developer, React developer, JavaScript, TypeScript, web animations, web development",
-      url: "https://andresbr.com/creative-code",
+        "fluid simulation, Navier-Stokes, creative coding, generative art, canvas animation, particle system, webGL, React canvas, interactive simulation",
+      url: "https://andresbr.com/fluid",
     });
 
     return {
@@ -40,7 +41,7 @@ function CreativeCode() {
               <h1 className="mb-2 font-light bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
                 Creative coding playground
               </h1>
-              <p className="bucket:text-[#ffb3b3] text-5xl text-muted-foreground dark:text-primary">
+              <p className="bucket:text-[#ffb3b3] text-5xl dark:text-primary">
                 An interactive experiment exploring fluid-like motion through real-time 2D
                 Navier–Stokes simulation.
               </p>

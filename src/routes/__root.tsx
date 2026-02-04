@@ -34,7 +34,7 @@ export const Route = createRootRoute({
           rel: "stylesheet",
           href: "https://use.typekit.net/klu5mct.css",
         },
-        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.ico" },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
         { rel: "manifest", href: "/site.webmanifest" },
         ...(s.links || []),

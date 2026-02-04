@@ -86,25 +86,25 @@ function App() {
 
   const workItems = [
     {
-      role: "Founder",
+      role: "Lead Developer",
       company: "anticommon.com",
       url: "https://anticommon.com",
       period: "Present",
-      description: "Founded and build website for anticommon.com",
+      description: "Founded and built website for anticommon.com",
     },
     {
       role: "FullStack Developer",
       company: "vidext.io",
       url: "https://vidext.io",
       period: "2024-2025",
-      description: "Buildt vidext.io and contributed to product development",
+      description: "Built vidext.io and contributed to product development",
     },
     {
       role: "Frontend Developer",
       company: "chekin.com",
       url: "https://chekin.com",
       period: "2023-2024",
-      description: "Developed guestapp with React",
+      description: "Contributed to guestapp development, maintenance and features of chekin.com",
     },
   ];
 

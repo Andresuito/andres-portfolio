@@ -11,7 +11,7 @@ export function CheckAnimated() {
       transition={{ duration: 0.1 }}
     >
       <motion.div
-        className="flex h-5 w-5 items-center justify-center rounded border-2 transition-all duration-200 ease-in-out"
+        className="flex h-5 w-5 items-center justify-center rounded border-2 border-foreground transition-all duration-200 ease-in-out"
         whileTap={{ scale: 0.9 }}
         transition={{ duration: 0.02 }}
       >
@@ -20,7 +20,7 @@ export function CheckAnimated() {
           height="14"
           viewBox="0 0 24 24"
           fill="none"
-          className="text-white"
+          className="text-foreground"
           role="img"
           aria-label="Checkmark"
           initial={{ opacity: 0 }}

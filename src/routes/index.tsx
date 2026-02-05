@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Moon, PaintBucket, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { useTheme } from "@/components/theme-provider";
+import { ThemeFooter } from "@/components/theme-footer";
 import { seo } from "@/lib/utils/seo";
 
 function useSpainTime() {
@@ -44,7 +43,6 @@ type Section = "about" | "work" | "play" | "contact";
 
 function App() {
   const spainTime = useSpainTime();
-  const { theme, setTheme } = useTheme();
   const [activeSection, setActiveSection] = useState<Section>("about");
   const [pill, setPill] = useState({ top: 0, left: 0, width: 95.83, height: 46 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -131,10 +129,10 @@ function App() {
   };
 
   return (
-    <div className="relative mx-auto min-h-screen max-w-361">
-      <div className="relative z-10 flex min-h-screen flex-col px-8 py-8">
+    <div className="relative mx-auto min-h-screen max-w-361 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex min-h-screen flex-col py-6 sm:py-8">
         <motion.h1
-          className="relative cursor-pointer text-[240px]"
+          className="group relative cursor-pointer text-[80px] leading-none sm:text-[120px] md:text-[160px] lg:text-[200px] xl:text-[240px]"
           initial="initial"
           whileHover="hover"
         >
@@ -153,11 +151,7 @@ function App() {
             ndrés
           </motion.span>
           <motion.span
-            className="inline-block will-change-transform"
-            variants={{
-              initial: { x: 0, opacity: 1 },
-              hover: { x: 580, opacity: 1 },
-            }}
+            className="inline-block will-change-transform group-hover:translate-x-[80px] sm:group-hover:translate-x-[120px] md:group-hover:translate-x-[160px] lg:group-hover:translate-x-[200px] xl:group-hover:translate-x-[240px]"
             transition={{
               duration: 0.5,
               ease: [0.25, 0.46, 0.45, 0.94],
@@ -167,8 +161,11 @@ function App() {
           </motion.span>
         </motion.h1>
 
-        <div className="mt-25 flex flex-1 items-start gap-30">
-          <div ref={containerRef} className="relative inline-flex flex-col gap-4 text-2xl">
+        <div className="mt-12 flex flex-1 flex-col items-start gap-8 lg:mt-20 lg:flex-row lg:gap-16 xl:gap-30">
+          <div
+            ref={containerRef}
+            className="relative inline-flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-4"
+          >
             <motion.div
               className="absolute -z-10 rounded-full border border-secondary bucket:border-[#FF9A9A] bg-secondary/10 bucket:bg-[#FF9A9A]/10 dark:border-muted dark:bg-muted/10"
               initial={false}
@@ -194,7 +191,7 @@ function App() {
                 onClick={() => {
                   setActiveSection(section.id);
                 }}
-                className={`w-fit cursor-pointer rounded-full border px-4 py-1.5 text-2xl transition-colors duration-300 ${
+                className={`w-fit cursor-pointer rounded-full border px-3 py-1.5 text-base transition-colors duration-300 sm:text-lg lg:px-4 lg:text-2xl ${
                   activeSection === section.id
                     ? "border-transparent text-foreground"
                     : "border-transparent text-foreground/30"
@@ -207,7 +204,7 @@ function App() {
             ))}
           </div>
 
-          <div className="flex-1 pb-8 text-2xl">
+          <div className="flex-1 pb-8 text-lg sm:text-xl lg:text-2xl">
             {sections.map((section) => (
               <motion.div
                 key={section.id}
@@ -223,9 +220,9 @@ function App() {
                 className={activeSection === section.id ? "block" : "hidden"}
               >
                 {section.id === "work" ? (
-                  <div className="grid grid-cols-3 justify-between space-y-2">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
                     {workItems.map((item: (typeof workItems)[0], index: number) => (
-                      <div key={index} className="flex max-w-71.75 flex-col gap-2">
+                      <div key={index} className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
                           {index === 0 ? (
                             <div className="size-4 animate-pulse rounded-full bg-[#77FFB8]" />
@@ -247,14 +244,14 @@ function App() {
                     ))}
                   </div>
                 ) : section.id === "play" ? (
-                  <div className="grid grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
                     <a
                       href="https://ggsalt.work"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col gap-3"
                     >
-                      <div className="h-76.25 w-77.75 overflow-hidden rounded-lg bg-muted">
+                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
                         <img
                           src="/bg-1.png"
                           alt="Custom portfolio website"
@@ -262,15 +259,15 @@ function App() {
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <p className="text-[24px] leading-tight">
+                        <p className="text-base leading-tight sm:text-lg lg:text-[24px]">
                           Custom portfolio website for a multidisciplinary designer
                         </p>
                         <p className="text-foreground/50">ggsalt.work</p>
                       </div>
                     </a>
 
-                    <Link to="/craft" className="flex flex-col gap-5">
-                      <div className="h-76.25 w-77.75 overflow-hidden rounded-lg bg-muted">
+                    <Link to="/craft" className="flex flex-col gap-3 sm:gap-5">
+                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
                         <img
                           src="/bg-2.png"
                           alt=""
@@ -278,14 +275,14 @@ function App() {
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <p className="text-[24px] leading-tight">
+                        <p className="text-base leading-tight sm:text-lg lg:text-[24px]">
                           Sandbox for microanimation explorations
                         </p>
                       </div>
                     </Link>
 
                     <Link to="/fluid" className="flex flex-col gap-3">
-                      <div className="h-76.25 w-77.75 overflow-hidden rounded-lg bg-muted">
+                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
                         <img
                           src="/bg-3.png"
                           alt=""
@@ -293,14 +290,14 @@ function App() {
                         />
                       </div>
                       <div className="flex flex-col gap-1">
-                        <p className="text-[24px] leading-tight">
+                        <p className="text-base leading-tight sm:text-lg lg:text-[24px]">
                           Creative coding playground Fluid simulation
                         </p>
                       </div>
                     </Link>
                   </div>
                 ) : section.id === "contact" ? (
-                  <div className="flex flex-col space-y-2 text-2xl">
+                  <div className="flex flex-col space-y-2 text-xl md:text-2xl">
                     <a
                       href="mailto:barrancorios@gmail.com"
                       className="relative inline-block w-fit before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-current before:transition-all before:duration-300 hover:before:w-full"
@@ -333,57 +330,16 @@ function App() {
                     </a>
                   </div>
                 ) : (
-                  <p className="w-full text-[48px]">{sectionContent[section.id].description}</p>
+                  <p className="w-full text-2xl leading-tight md:text-3xl lg:text-[48px]">
+                    {sectionContent[section.id].description}
+                  </p>
                 )}
               </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="mt-auto flex items-center justify-between text-xl">
-          <div className="flex items-center gap-4">
-            <p>Based in Spain</p>
-            <p>{spainTime}</p>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setTheme("light")}
-              className={`cursor-pointer transition-opacity duration-200 ${
-                theme === "light" ? "opacity-100" : "opacity-40 hover:opacity-70"
-              }`}
-              aria-label="Light mode"
-            >
-              <Sun className="size-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setTheme("dark")}
-              className={`cursor-pointer transition-opacity duration-200 ${
-                theme === "dark" ? "opacity-100" : "opacity-40 hover:opacity-70"
-              }`}
-              aria-label="Dark mode"
-            >
-              <Moon className="size-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setTheme("bucket")}
-              className={`cursor-pointer transition-opacity duration-200 ${
-                theme === "bucket" ? "opacity-100" : "opacity-40 hover:opacity-70"
-              }`}
-              aria-label="Bucket mode"
-            >
-              <PaintBucket className="size-5" />
-            </button>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <div className="size-4 animate-pulse rounded-full bg-[#77FFB8]" />
-            <span>Available for projects</span>
-          </div>
-        </div>
+        <ThemeFooter time={spainTime} />
       </div>
     </div>
   );

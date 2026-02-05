@@ -26,13 +26,13 @@ export const Route = createFileRoute("/craft")({
 
 function Craft() {
   return (
-    <div className="relative mx-auto min-h-screen max-w-361">
-      <div className="relative z-10 flex min-h-screen flex-col px-8 py-8">
-        <div className="flex gap-25">
+    <div className="relative mx-auto min-h-screen max-w-361 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex min-h-screen flex-col py-6 sm:py-8">
+        <div className="flex flex-col gap-8 lg:flex-row lg:gap-16 xl:gap-25">
           <div className="relative">
             <Link
               to="/"
-              className="relative inline-block w-fit text-nowrap font-light text-2xl before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-current before:transition-all before:duration-300 hover:before:w-full"
+              className="relative inline-block w-fit text-nowrap font-light text-lg before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-current before:transition-all before:duration-300 hover:before:w-full sm:text-xl lg:text-2xl"
             >
               Go back
             </Link>
@@ -40,31 +40,31 @@ function Craft() {
 
           <div className="w-full">
             <div className="pointer-events-none">
-              <h1 className="mb-2 bucket:text-[#FF9A9A] text-2xl text-foreground tracking-tight dark:text-foreground">
+              <h1 className="mb-2 bucket:text-[#FF9A9A] text-foreground text-lg tracking-tight sm:text-xl lg:text-2xl dark:text-foreground">
                 Microinteractions
               </h1>
-              <p className="bucket:text-[#ffb3b3] text-5xl dark:text-primary">
+              <p className="bucket:text-[#ffb3b3] text-2xl sm:text-3xl md:text-4xl lg:text-5xl dark:text-primary">
                 An interactive sandbox exploring UI feedback patterns such as toggles, checkboxes,
                 and notification states.
               </p>
             </div>
-            <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
-              <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-8 dark:border-border dark:bg-card">
-                <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-xl dark:text-foreground">
+            <div className="mt-8 grid grid-cols-1 gap-8 sm:mt-12 sm:gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
+              <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-6 sm:p-8 dark:border-border dark:bg-card">
+                <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-lg sm:text-xl dark:text-foreground">
                   Feedback Component
                 </h2>
                 <FeedbackAnimation />
               </div>
 
-              <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-8 dark:border-border dark:bg-card">
-                <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-xl dark:text-foreground">
+              <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-6 sm:p-8 dark:border-border dark:bg-card">
+                <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-lg sm:text-xl dark:text-foreground">
                   Check Animation
                 </h2>
                 <CheckAnimated />
               </div>
 
-              <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-8 dark:border-border dark:bg-card">
-                <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-xl dark:text-foreground">
+              <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-6 sm:p-8 dark:border-border dark:bg-card">
+                <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-lg sm:text-xl dark:text-foreground">
                   Notification Animation
                 </h2>
                 <NotificationAnimation />

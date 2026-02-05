@@ -4,22 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { ThemeFooter } from "@/components/theme-footer";
 import { seo } from "@/lib/utils/seo";
 
-function useSpainTime() {
-  const [, setTick] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => setTick((t) => t + 1), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return new Date().toLocaleTimeString("en-US", {
-    timeZone: "Europe/Madrid",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
-}
-
 export const Route = createFileRoute("/")({
   component: App,
   head: () => {
@@ -42,7 +26,6 @@ export const Route = createFileRoute("/")({
 type Section = "about" | "work" | "play" | "contact";
 
 function App() {
-  const spainTime = useSpainTime();
   const [activeSection, setActiveSection] = useState<Section>("about");
   const [pill, setPill] = useState({ top: 0, left: 0, width: 95.9, height: 46.1 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -347,7 +330,7 @@ function App() {
           </div>
         </div>
 
-        <ThemeFooter time={spainTime} />
+        <ThemeFooter />
       </div>
     </div>
   );

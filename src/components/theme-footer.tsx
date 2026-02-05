@@ -1,12 +1,26 @@
 import { Moon, PaintBucket, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@/components/theme-provider";
 
-interface ThemeFooterProps {
-  time?: string;
+function useSpainTime() {
+  const [, setTick] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setTick((t) => t + 1), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return new Date().toLocaleTimeString("en-US", {
+    timeZone: "Europe/Madrid",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
 }
 
-export function ThemeFooter({ time }: ThemeFooterProps) {
+export function ThemeFooter() {
   const { theme, setTheme } = useTheme();
+  const time = useSpainTime();
 
   return (
     <div className="mt-auto flex items-center justify-between text-sm sm:text-base lg:text-xl">
@@ -17,7 +31,7 @@ export function ThemeFooter({ time }: ThemeFooterProps) {
 
       <div className="hidden items-center gap-4 bucket:text-[#FF9A9A] text-foreground sm:flex dark:text-foreground">
         <p>Based in Spain</p>
-        {time && <p className="text-foreground/60">{time}</p>}
+        <p className="text-foreground/60">{time}</p>
       </div>
 
       <div className="flex items-center gap-3 sm:gap-4">
@@ -55,7 +69,7 @@ export function ThemeFooter({ time }: ThemeFooterProps) {
 
       <div className="flex items-center gap-2 sm:hidden">
         <p className="bucket:text-[#FF9A9A] text-foreground text-xs dark:text-foreground">Spain</p>
-        {time && <p className="text-foreground/60 text-xs">{time}</p>}
+        <p className="text-foreground/60 text-xs">{time}</p>
       </div>
 
       <div className="hidden items-center gap-2 bucket:text-[#FF9A9A] text-foreground sm:flex dark:text-foreground">

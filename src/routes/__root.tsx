@@ -6,6 +6,15 @@ import { getThemeServerFn } from "@/lib/theme";
 import { personSchema, seo } from "@/lib/utils/seo";
 import appCss from "../styles.css?url";
 
+function ErrorComponent({ error }: { error: Error }) {
+  return (
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1>Something went wrong</h1>
+      <p>{error.message}</p>
+    </div>
+  );
+}
+
 export const Route = createRootRoute({
   head: () => {
     const s = seo({
@@ -41,6 +50,7 @@ export const Route = createRootRoute({
   },
   loader: () => getThemeServerFn(),
   notFoundComponent: () => <NotFound />,
+  errorComponent: ErrorComponent,
   shellComponent: RootDocument,
 });
 

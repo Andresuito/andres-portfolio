@@ -248,10 +248,11 @@ export function FluidSimulation() {
       }
     };
 
+    let animationId: number;
     const animate = () => {
       step();
       render();
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -356,6 +357,7 @@ export function FluidSimulation() {
     animate();
 
     return () => {
+      cancelAnimationFrame(animationId);
       resizeObserver.disconnect();
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("touchmove", handleTouchMove);

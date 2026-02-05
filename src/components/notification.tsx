@@ -1,5 +1,5 @@
 import { Bell } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function NotificationAnimation() {
   const [notificationCount, setNotificationCount] = useState(0);
@@ -8,14 +8,27 @@ export function NotificationAnimation() {
   const [showBadge, setShowBadge] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [isCountAnimating, setIsCountAnimating] = useState(false);
-  const [closeTimeoutId, setCloseTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const countAnimTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const shakeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const exitTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (countAnimTimeoutRef.current) clearTimeout(countAnimTimeoutRef.current);
+      if (shakeTimeoutRef.current) clearTimeout(shakeTimeoutRef.current);
+      if (exitTimeoutRef.current) clearTimeout(exitTimeoutRef.current);
+    };
+  }, []);
 
   const addNotification = () => {
     setNotificationCount((prev) => {
       const newCount = prev + 1;
       if (newCount > 1 && newCount <= 10 && !isCountAnimating) {
         setIsCountAnimating(true);
-        setTimeout(() => setIsCountAnimating(false), 600);
+        countAnimTimeoutRef.current = setTimeout(() => setIsCountAnimating(false), 600);
       }
       return newCount;
     });
@@ -24,27 +37,24 @@ export function NotificationAnimation() {
 
     if (!isShaking) {
       setIsShaking(true);
-      setTimeout(() => {
+      shakeTimeoutRef.current = setTimeout(() => {
         setIsShaking(false);
       }, 600);
     }
 
     setShowNotification(true);
 
-    if (closeTimeoutId) {
-      clearTimeout(closeTimeoutId);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
 
-    const newTimeoutId = setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setIsExiting(true);
-      setTimeout(() => {
+      exitTimeoutRef.current = setTimeout(() => {
         setShowNotification(false);
         setIsExiting(false);
       }, 350);
-      setCloseTimeoutId(null);
     }, 2000);
-
-    setCloseTimeoutId(newTimeoutId);
   };
 
   return (

@@ -36,8 +36,8 @@ function CreativeCode() {
             </Link>
           </div>
 
-          <div className="flex w-full flex-1 flex-col">
-            <div className="pointer-events-none">
+          <div className="flex min-h-0 w-full flex-1 flex-col">
+            <div className="pointer-events-none shrink-0">
               <h1 className="mb-2 bucket:text-[#FF9A9A] text-foreground text-lg tracking-tight sm:text-xl lg:text-2xl dark:text-foreground">
                 Creative coding playground
               </h1>
@@ -46,7 +46,7 @@ function CreativeCode() {
                 Navier–Stokes simulation.
               </p>
             </div>
-            <div className="mt-6 flex min-h-[300px] flex-1 flex-col overflow-hidden rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 sm:mt-8 sm:min-h-[400px] lg:min-h-0 dark:border-border dark:bg-card">
+            <div className="mt-6 h-[60vh] overflow-hidden rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 sm:mt-8 sm:h-[500px] lg:flex-1 dark:border-border dark:bg-card">
               <FluidSimulation />
             </div>
           </div>

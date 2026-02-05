@@ -303,29 +303,39 @@ export function FluidSimulation() {
       const j = Math.floor(mouseY / cellSize);
 
       if (i >= 0 && i < cols && j >= 0 && j < rows) {
-        const amountX = (mouseX - pmouseX) * MOUSE_VELOCITY_MULT;
-        const amountY = (mouseY - pmouseY) * MOUSE_VELOCITY_MULT;
+        const amountX = (mouseX - pmouseX) * MOUSE_VELOCITY_MULT * 3;
+        const amountY = (mouseY - pmouseY) * MOUSE_VELOCITY_MULT * 3;
 
         addVelocity(i, j, amountX, amountY);
-        addDensity(i, j, DENSITY_AMOUNT);
+        addDensity(i, j, DENSITY_AMOUNT * 2);
 
         if (i > 0) {
-          addVelocity(i - 1, j, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
+          addVelocity(i - 1, j, amountX * 0.5, amountY * 0.5);
           addDensity(i - 1, j, NEIGHBOR_DENSITY);
         }
         if (i < cols - 1) {
-          addVelocity(i + 1, j, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
+          addVelocity(i + 1, j, amountX * 0.5, amountY * 0.5);
           addDensity(i + 1, j, NEIGHBOR_DENSITY);
         }
         if (j > 0) {
-          addVelocity(i, j - 1, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
+          addVelocity(i, j - 1, amountX * 0.5, amountY * 0.5);
           addDensity(i, j - 1, NEIGHBOR_DENSITY);
         }
         if (j < rows - 1) {
-          addVelocity(i, j + 1, amountX * MOUSE_VELOCITY_MULT, amountY * MOUSE_VELOCITY_MULT);
+          addVelocity(i, j + 1, amountX * 0.5, amountY * 0.5);
           addDensity(i, j + 1, NEIGHBOR_DENSITY);
         }
       }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      canvasOffset = getCanvasOffset();
+      const touch = e.touches[0];
+      mouseX = touch.clientX - canvasOffset.left;
+      mouseY = touch.clientY - canvasOffset.top;
+      pmouseX = mouseX;
+      pmouseY = mouseY;
     };
 
     const resizeObserver = new ResizeObserver(() => {
@@ -341,6 +351,7 @@ export function FluidSimulation() {
 
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
 
     animate();
 
@@ -348,6 +359,7 @@ export function FluidSimulation() {
       resizeObserver.disconnect();
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchstart", handleTouchStart);
     };
   }, [theme]);
 

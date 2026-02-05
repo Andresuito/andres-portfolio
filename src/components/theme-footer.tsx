@@ -9,7 +9,7 @@ export function ThemeFooter({ time }: ThemeFooterProps) {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="mt-auto flex items-center justify-between px-4 pb-6 text-sm sm:text-base lg:text-xl">
+    <div className="mt-auto flex items-center justify-between text-sm sm:text-base lg:text-xl">
       <div className="flex items-center gap-2 sm:hidden">
         <div className="size-3 animate-pulse rounded-full bg-[#77FFB8]" />
         <span className="text-xs">Available</span>

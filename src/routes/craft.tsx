@@ -48,7 +48,7 @@ function Craft() {
                 and notification states.
               </p>
             </div>
-            <div className="mt-8 grid grid-cols-1 gap-8 sm:mt-12 sm:gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
+            <div className="mt-8 mb-8 grid grid-cols-1 gap-8 sm:mt-12 sm:gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3">
               <div className="rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 p-6 sm:p-8 dark:border-border dark:bg-card">
                 <h2 className="mb-4 font-medium bucket:text-[#FF9A9A] text-foreground text-lg sm:text-xl dark:text-foreground">
                   Feedback Component

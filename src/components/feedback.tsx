@@ -45,7 +45,7 @@ export function FeedbackAnimation() {
             <>
               {!hasText && (
                 <motion.h2
-                  className="absolute top-[calc(50%-80px)] left-[calc(50%-130px)] z-40 select-none text-nowrap bucket:text-[#FF9A9A] text-foreground text-xs opacity-100 sm:left-[calc(50%-100px)] lg:left-[calc(50%-133px)] dark:text-foreground"
+                  className="absolute top-[calc(50%-80px)] left-[calc(50%-110px)] z-40 select-none text-nowrap bucket:text-[#FF9A9A] text-foreground text-xs opacity-100 sm:left-[calc(50%-120px)] lg:left-[calc(50%-133px)] dark:text-foreground"
                   layoutId="feedback-text"
                   exit={{ opacity: 0, scale: 0.1 }}
                   transition={{

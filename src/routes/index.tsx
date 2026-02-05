@@ -130,9 +130,9 @@ function App() {
 
   return (
     <div className="relative mx-auto min-h-screen max-w-361 px-4 sm:px-6 lg:px-8">
-      <div className="relative z-10 flex min-h-screen flex-col py-6 sm:py-8">
+      <div className="relative z-10 flex min-h-screen flex-col py-2">
         <motion.h1
-          className="group relative cursor-pointer text-[80px] leading-none sm:text-[120px] md:text-[160px] lg:text-[200px] xl:text-[240px]"
+          className="relative hidden cursor-pointer text-[240px] leading-none lg:block"
           initial="initial"
           whileHover="hover"
         >
@@ -151,7 +151,11 @@ function App() {
             ndrés
           </motion.span>
           <motion.span
-            className="inline-block will-change-transform group-hover:translate-x-[80px] sm:group-hover:translate-x-[120px] md:group-hover:translate-x-[160px] lg:group-hover:translate-x-[200px] xl:group-hover:translate-x-[240px]"
+            className="inline-block will-change-transform"
+            variants={{
+              initial: { x: 0, opacity: 1 },
+              hover: { x: 580, opacity: 1 },
+            }}
             transition={{
               duration: 0.5,
               ease: [0.25, 0.46, 0.45, 0.94],
@@ -161,7 +165,12 @@ function App() {
           </motion.span>
         </motion.h1>
 
-        <div className="mt-12 flex flex-1 flex-col items-start gap-8 lg:mt-20 lg:flex-row lg:gap-16 xl:gap-30">
+        {/* Mobile/Tablet: Static ABR */}
+        <h1 className="relative cursor-pointer text-[80px] leading-none sm:text-[120px] md:text-[160px] lg:hidden">
+          ABR
+        </h1>
+
+        <div className="mt-6 flex flex-1 flex-col items-start gap-6 sm:mt-8 sm:gap-8 lg:mt-12 lg:flex-row lg:gap-12 xl:mt-16 xl:gap-16">
           <div
             ref={containerRef}
             className="relative inline-flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-4"
@@ -244,14 +253,14 @@ function App() {
                     ))}
                   </div>
                 ) : section.id === "play" ? (
-                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-4">
                     <a
                       href="https://ggsalt.work"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex flex-col gap-3"
+                      className="group flex flex-col gap-2 sm:gap-3"
                     >
-                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                      <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-muted sm:aspect-[4/3]">
                         <img
                           src="/bg-1.png"
                           alt="Custom portfolio website"
@@ -266,8 +275,8 @@ function App() {
                       </div>
                     </a>
 
-                    <Link to="/craft" className="flex flex-col gap-3 sm:gap-5">
-                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                    <Link to="/craft" className="flex flex-col gap-2 sm:gap-3">
+                      <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-muted sm:aspect-[4/3]">
                         <img
                           src="/bg-2.png"
                           alt=""
@@ -281,8 +290,8 @@ function App() {
                       </div>
                     </Link>
 
-                    <Link to="/fluid" className="flex flex-col gap-3">
-                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                    <Link to="/fluid" className="flex flex-col gap-2 sm:gap-3">
+                      <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-muted sm:aspect-[4/3]">
                         <img
                           src="/bg-3.png"
                           alt=""

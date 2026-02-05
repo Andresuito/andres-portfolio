@@ -3,6 +3,9 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant bucket (&:is(.bucket *));
 
+@custom-variant tall (&:is(.tall, [data-tall] *, @media (min-height: 800px)));
+@custom-variant short (&:is(.short, [data-short] *, @media (max-height: 700px)));
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

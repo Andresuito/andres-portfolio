@@ -169,7 +169,7 @@ function App() {
           ABR
         </h2>
 
-        <div className="mt-6 flex flex-1 flex-col items-start gap-6 sm:mt-8 sm:gap-8 lg:mt-12 lg:flex-row lg:gap-12 xl:mt-16 xl:gap-16">
+        <div className="mt-6 flex flex-1 flex-col items-start gap-6 sm:mt-8 sm:gap-8 lg:mt-12 lg:flex-row lg:gap-12 xl:mt-8 xl:gap-8 [@media(min-height:1100px)]:xl:mt-24 [@media(min-height:900px)]:xl:mt-40">
           <div
             ref={containerRef}
             className="relative inline-flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-4"

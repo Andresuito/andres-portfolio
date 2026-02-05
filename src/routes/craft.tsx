@@ -27,7 +27,7 @@ export const Route = createFileRoute("/craft")({
 function Craft() {
   return (
     <div className="relative mx-auto min-h-screen max-w-361 px-4 sm:px-6 lg:px-8">
-      <div className="relative z-10 flex min-h-screen flex-col py-6 sm:py-8">
+      <div className="relative z-10 flex min-h-screen flex-col py-2">
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-16 xl:gap-25">
           <div className="relative">
             <Link

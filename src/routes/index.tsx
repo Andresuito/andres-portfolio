@@ -212,7 +212,7 @@ function App() {
             ))}
           </div>
 
-          <div className="flex-1 pb-8 text-lg sm:text-xl lg:text-2xl">
+          <div className="w-full flex-1 pb-8 text-lg sm:text-xl lg:text-2xl">
             {sections.map((section) => (
               <motion.div
                 key={section.id}

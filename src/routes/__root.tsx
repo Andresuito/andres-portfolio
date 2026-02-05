@@ -16,8 +16,6 @@ export const Route = createRootRoute({
         "web developer, React developer, Next.js, TypeScript, frontend developer, full stack developer, JavaScript, web animations, portfolio",
     });
 
-    const schema = personSchema();
-
     return {
       meta: [
         { charSet: "utf-8" },
@@ -39,12 +37,6 @@ export const Route = createRootRoute({
         { rel: "manifest", href: "/site.webmanifest" },
         ...(s.links || []),
       ],
-      scripts: [
-        {
-          type: "application/ld+json",
-          innerHTML: JSON.stringify(schema),
-        },
-      ],
     };
   },
   loader: () => getThemeServerFn(),
@@ -61,10 +53,16 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     enabled: true,
   });
 
+  const schema = personSchema();
+
   return (
     <html lang="en" className={theme} suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
       </head>
       <body>
         <ThemeProvider serverTheme={theme}>{children}</ThemeProvider>

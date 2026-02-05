@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
     const s = seo({
       title: "Andrés B.R | Web Developer",
       description:
-        "I'm a web developer specializing in building attractive, dynamic and functional websites. I use code to turn ideas into seamless web experiences, specializing in smooth animations and interactive components.",
+        "Building websites that actually work. Clean code, smooth animations, and interfaces that don't frustrate users.",
       keywords:
         "web developer, React developer, Next.js, TypeScript, frontend developer, full stack developer, JavaScript, web animations, portfolio, Spain",
       url: "https://andresbr.com",
@@ -44,7 +44,7 @@ type Section = "about" | "work" | "play" | "contact";
 function App() {
   const spainTime = useSpainTime();
   const [activeSection, setActiveSection] = useState<Section>("about");
-  const [pill, setPill] = useState({ top: 0, left: 0, width: 95.83, height: 46 });
+  const [pill, setPill] = useState({ top: 0, left: 0, width: 95.9, height: 46.1 });
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Map<Section, HTMLButtonElement>>(new Map());
 
@@ -165,10 +165,9 @@ function App() {
           </motion.span>
         </motion.h1>
 
-        {/* Mobile/Tablet: Static ABR */}
-        <h1 className="relative cursor-pointer text-[80px] leading-none sm:text-[120px] md:text-[160px] lg:hidden">
+        <h2 className="relative cursor-pointer text-[80px] leading-none sm:text-[120px] md:text-[160px] lg:hidden">
           ABR
-        </h1>
+        </h2>
 
         <div className="mt-6 flex flex-1 flex-col items-start gap-6 sm:mt-8 sm:gap-8 lg:mt-12 lg:flex-row lg:gap-12 xl:mt-16 xl:gap-16">
           <div

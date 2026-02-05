@@ -11,7 +11,7 @@ export const Route = createRootRoute({
     const s = seo({
       title: "Andrés B.R | Web Developer",
       description:
-        "I'm a web developer specializing in building attractive, dynamic and functional websites. I use code to turn ideas into seamless web experiences, specializing in smooth animations and interactive components.",
+        "Building websites that actually work. Clean code, smooth animations, and interfaces that don't frustrate users.",
       keywords:
         "web developer, React developer, Next.js, TypeScript, frontend developer, full stack developer, JavaScript, web animations, portfolio",
     });
@@ -61,6 +61,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <is not dangerous>
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>

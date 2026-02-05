@@ -24,9 +24,9 @@ export const Route = createFileRoute("/fluid")({
 
 function CreativeCode() {
   return (
-    <div className="relative mx-auto flex min-h-screen max-w-361 flex-col px-4 sm:px-6 lg:px-8">
-      <div className="relative z-10 flex flex-1 flex-col py-6 sm:py-8">
-        <div className="flex flex-1 flex-col gap-8 lg:flex-row lg:gap-16 xl:gap-25">
+    <div className="relative mx-auto flex h-screen max-w-361 flex-col px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col py-6 sm:py-8">
+        <div className="flex min-h-0 flex-1 flex-col gap-8 pb-8 lg:flex-row lg:gap-16 xl:gap-25">
           <div className="relative">
             <Link
               to="/"
@@ -46,14 +46,13 @@ function CreativeCode() {
                 Navier–Stokes simulation.
               </p>
             </div>
-            <div className="mt-6 h-[60vh] overflow-hidden rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 sm:mt-8 sm:h-[500px] lg:flex-1 dark:border-border dark:bg-card">
+            <div className="relative mt-6 h-full overflow-hidden rounded-xl border border-border bucket:border-[#FF9A9A]/20 bg-card bucket:bg-[#7a1a1a]/30 sm:mt-8 lg:flex-1 dark:border-border dark:bg-card">
               <FluidSimulation />
             </div>
           </div>
         </div>
+        <ThemeFooter />
       </div>
-
-      <ThemeFooter />
     </div>
   );
 }

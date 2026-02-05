@@ -365,11 +365,7 @@ export function FluidSimulation() {
 
   return (
     <div ref={containerRef} className="relative h-full w-full overflow-hidden rounded-lg">
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 block h-full w-full"
-        style={{ cursor: "crosshair" }}
-      />
+      <canvas ref={canvasRef} className="block h-full w-full" style={{ cursor: "crosshair" }} />
     </div>
   );
 }

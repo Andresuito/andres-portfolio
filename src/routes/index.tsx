@@ -113,7 +113,7 @@ function App() {
 
   return (
     <div className="relative mx-auto min-h-screen max-w-361 px-4 sm:px-6 lg:px-8">
-      <div className="relative z-10 flex min-h-screen flex-col py-2">
+      <div className="relative z-10 flex min-h-screen flex-col py-6 sm:py-8">
         <motion.h1
           className="relative hidden cursor-pointer text-[240px] leading-none lg:block"
           initial="initial"

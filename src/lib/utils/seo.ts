@@ -16,7 +16,7 @@ export const seo = ({
   author?: string;
 }) => {
   const siteUrl = "https://andresbr.com";
-  const defaultImage = `${siteUrl}/og.png`;
+  const defaultImage = `${siteUrl}/og.jpg`;
   const finalImage = image || defaultImage;
   const finalUrl = url || siteUrl;
 

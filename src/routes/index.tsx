@@ -74,7 +74,7 @@ function App() {
       description: "Founded and built website for anticommon.com",
     },
     {
-      role: "FullStack Developer",
+      role: "Full Stack Developer",
       company: "vidext.io",
       url: "https://vidext.io",
       period: "2024-2025",
@@ -282,7 +282,8 @@ function App() {
                       </div>
                       <div className="flex flex-col gap-1">
                         <p className="text-base leading-tight sm:text-lg lg:text-[24px]">
-                          Creative coding playground Fluid simulation
+                          Creative coding playground <br />
+                          Fluid simulation
                         </p>
                       </div>
                     </Link>

@@ -20,13 +20,14 @@ export const Route = createFileRoute("/")({
   },
 });
 
-const works = [
-  {
-    role: "Founder / Developer",
-    company: "anticommon.com",
-    href: "https://anticommon.com",
-    period: "Now",
-  },
+const ownThing = {
+  role: "Founder / Developer",
+  company: "anticommon.com",
+  href: "https://anticommon.com",
+  period: "Now",
+};
+
+const moneyFarming = [
   {
     role: "Full Stack Developer",
     company: "vidext.io",
@@ -63,7 +64,7 @@ function HomePage() {
   return (
     <main className="max-w-160 px-6 py-8">
       <div className="flex w-fit items-center gap-10 border-border border-b">
-        <h1 className="text-base">andrés b.r</h1>
+        <h1 className="text-sm">andrés b.r</h1>
 
         <div>
           {socials.map((social) => {
@@ -85,9 +86,26 @@ function HomePage() {
         </div>
       </div>
       <section className="mt-10">
-        <h2 className="mb-4 text-muted-foreground text-sm">works</h2>
+        <h2 className="mb-4 text-muted-foreground text-sm">my little scheme</h2>
         <div className="space-y-3">
-          {works.map((work) => {
+          <a
+            href={ownThing.href}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-baseline justify-between gap-4 border-border border-b pb-3 transition-opacity hover:opacity-70"
+          >
+            <div>
+              <p className="text-sm">{ownThing.company}</p>
+              <p className="text-muted-foreground text-sm">{ownThing.role}</p>
+            </div>
+            <span className="shrink-0 text-muted-foreground text-xs">{ownThing.period}</span>
+          </a>
+        </div>
+      </section>
+      <section className="mt-10">
+        <h2 className="mb-4 text-muted-foreground text-sm">money farming</h2>
+        <div className="space-y-3">
+          {moneyFarming.map((work) => {
             return (
               <a
                 key={`${work.company}-${work.period}`}

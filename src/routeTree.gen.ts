@@ -9,20 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as FluidRouteImport } from './routes/fluid'
-import { Route as CraftRouteImport } from './routes/craft'
 import { Route as IndexRouteImport } from './routes/index'
 
-const FluidRoute = FluidRouteImport.update({
-  id: '/fluid',
-  path: '/fluid',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CraftRoute = CraftRouteImport.update({
-  id: '/craft',
-  path: '/craft',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,50 +19,28 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/craft': typeof CraftRoute
-  '/fluid': typeof FluidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/craft': typeof CraftRoute
-  '/fluid': typeof FluidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/craft': typeof CraftRoute
-  '/fluid': typeof FluidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/craft' | '/fluid'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/craft' | '/fluid'
-  id: '__root__' | '/' | '/craft' | '/fluid'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CraftRoute: typeof CraftRoute
-  FluidRoute: typeof FluidRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/fluid': {
-      id: '/fluid'
-      path: '/fluid'
-      fullPath: '/fluid'
-      preLoaderRoute: typeof FluidRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/craft': {
-      id: '/craft'
-      path: '/craft'
-      fullPath: '/craft'
-      preLoaderRoute: typeof CraftRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -87,8 +53,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CraftRoute: CraftRoute,
-  FluidRoute: FluidRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

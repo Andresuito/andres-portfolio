@@ -1,14 +1,11 @@
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { NotFound } from "@/components/not-found";
-import { ThemeProvider } from "@/components/theme-provider";
-import { useGlobalClickSounds } from "@/hooks/useSounds";
-import { getThemeServerFn } from "@/lib/theme";
 import { personSchema, seo } from "@/lib/utils/seo";
 import appCss from "../styles.css?url";
 
 function ErrorComponent({ error }: { error: Error }) {
   return (
-    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+    <div style={{ padding: "20px", fontFamily: '"Geist Mono"' }}>
       <h1>Something went wrong</h1>
       <p>{error.message}</p>
     </div>
@@ -18,18 +15,18 @@ function ErrorComponent({ error }: { error: Error }) {
 export const Route = createRootRoute({
   head: () => {
     const s = seo({
-      title: "Andrés B.R | Web Developer",
+      title: "Andrés b.r",
       description:
-        "Building websites that actually work. Clean code, smooth animations, and interfaces that don't frustrate users.",
+        "Portfolio of Andrés B.R. Currently building anticommon.com and previously worked on vidext.io.",
       keywords:
-        "web developer, React developer, Next.js, TypeScript, frontend developer, full stack developer, JavaScript, web animations, portfolio",
+        "Andrés B.R, portfolio, web developer, frontend developer, full stack developer, anticommon, vidext",
     });
 
     return {
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "theme-color", content: "#111111" },
+        { name: "theme-color", content: "#f5f1e8" },
         ...s.meta,
       ],
       links: [
@@ -38,8 +35,17 @@ export const Route = createRootRoute({
           href: appCss,
         },
         {
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com",
+        },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossOrigin: "anonymous",
+        },
+        {
           rel: "stylesheet",
-          href: "https://use.typekit.net/klu5mct.css",
+          href: "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;700&display=swap",
         },
         { rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -50,25 +56,16 @@ export const Route = createRootRoute({
       ],
     };
   },
-  loader: () => getThemeServerFn(),
   notFoundComponent: () => <NotFound />,
   errorComponent: ErrorComponent,
   shellComponent: RootDocument,
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const theme = Route.useLoaderData();
-
-  useGlobalClickSounds({
-    preset: "click",
-    volume: 0.4,
-    enabled: true,
-  });
-
   const schema = personSchema();
 
   return (
-    <html lang="en" className={theme} suppressHydrationWarning>
+    <html lang="en">
       <head>
         <HeadContent />
         <script
@@ -78,7 +75,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        <ThemeProvider serverTheme={theme}>{children}</ThemeProvider>
+        {children}
         <Scripts />
       </body>
     </html>

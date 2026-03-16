@@ -7,7 +7,7 @@ export const Route = createFileRoute("/")({
   head: () => {
     const s = seo({
       title: "Andrés b.r",
-      description: "Portfolio of Andrés B.R.",
+      description: "I'm just a web developer",
       keywords:
         "Andres B.R, portfolio, web developer, frontend developer, full stack developer, anticommon, vidext",
       url: "https://andresbr.com",

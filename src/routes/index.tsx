@@ -103,7 +103,7 @@ function HomePage() {
         </div>
       </section>
       <section className="mt-10">
-        <h2 className="mb-4 text-muted-foreground text-sm">money farming</h2>
+        <h2 className="mb-4 text-muted-foreground text-sm">past works</h2>
         <div className="space-y-3">
           {moneyFarming.map((work) => {
             return (

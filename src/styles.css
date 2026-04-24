@@ -2,7 +2,7 @@
 
 @theme inline {
   --font-family-sans: var(--font-mono);
-  --color-background: var(--background);
+
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -10,10 +10,9 @@
 }
 
 :root {
-  --font-mono: "Geist Mono";
+  --font-mono: "Space Mono";
   --default-font-family: var(--font-mono);
   --default-mono-font-family: var(--font-mono);
-  --background: #faf7f1;
   --foreground: #1b1814;
   --muted: #f2ece2;
   --muted-foreground: #1b181480;
@@ -38,10 +37,6 @@
     font-style: normal;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    @apply bg-background text-foreground;
-  }
-
-  ::selection {
-    @apply bg-foreground text-background;
-  }
+    @apply text-foreground;
+  } 
 }

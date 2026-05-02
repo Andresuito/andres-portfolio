@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 const ownThing = [
   {
     role: "Founder",
-    company: "Abari",
+    company: "abari.ph",
     href: "https://abari.ph",
     period: "Now",
   },

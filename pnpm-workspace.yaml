@@ -1,5 +1,4 @@
 minimumReleaseAge: 0
-trustPolicy: no-downgrade
 allowBuilds:
   esbuild: true
   sharp: true

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
     const s = seo({
       title: "Andrés b.r",
       description:
-        "Web developer with a few years of experience, focused on polished interfaces, thoughtful animations, and design-driven frontend work.",
+        "Web developer with a focus on polished interfaces, thoughtful animations, and design-driven frontend work.",
       keywords:
         "Andres B.R, portfolio, web developer, frontend developer, full stack developer, anticommon, vidext",
       url: "https://andresbr.com",
@@ -73,7 +73,7 @@ const socials = [
 
 const timezones = [
   { label: "PH", timezone: "Asia/Manila" },
-  { label: "Spain", timezone: "Europe/Madrid" },
+  { label: "ES", timezone: "Europe/Madrid" },
 ];
 
 const container = {
@@ -159,16 +159,15 @@ function HomePage() {
       </motion.div>
       <motion.section variants={item} className="mt-10 max-w-2xl">
         <p className="text-foreground text-sm leading-7">
-          I'm a web developer with a few years of experience building digital products for the web,
-          working across design, frontend, and the small details that shape how things feel.
+          I'm a web developer with experience in creating digital products for the web, working
+          across design, frontend, and the small details that shape how things feel.
         </p>
         <p className="mt-4 text-muted-foreground text-sm leading-7">
-          I live between Spain and the Philippines, and right now I'm building{" "}
+          Based between Spain and the Philippines, I'm currently building{" "}
           <a href="https://abari.ph/" className="bg-green-50 p-px">
             abari.ph
           </a>
-          . I care about making websites feel clear, useful, and easy to use, with enough
-          personality to not feel generic.
+          . I care about making websites feel clear, useful, and easy to use.
         </p>
       </motion.section>
       <motion.section variants={item} className="mt-10">

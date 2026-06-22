@@ -1,6 +1,7 @@
 import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { seo } from "@/lib/utils/seo";
 
 export const Route = createFileRoute("/")({
@@ -8,7 +9,8 @@ export const Route = createFileRoute("/")({
   head: () => {
     const s = seo({
       title: "Andrés b.r",
-      description: "I'm just a web developer",
+      description:
+        "Web developer with a few years of experience, focused on polished interfaces, thoughtful animations, and design-driven frontend work.",
       keywords:
         "Andres B.R, portfolio, web developer, frontend developer, full stack developer, anticommon, vidext",
       url: "https://andresbr.com",
@@ -69,6 +71,11 @@ const socials = [
   },
 ];
 
+const timezones = [
+  { label: "PH", timezone: "Asia/Manila" },
+  { label: "Spain", timezone: "Europe/Madrid" },
+];
+
 const container = {
   hidden: {},
   show: {
@@ -93,13 +100,38 @@ const item = {
   },
 };
 
+function formatLocalTime(timezone: string) {
+  return new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: timezone,
+  }).format(new Date());
+}
+
 function HomePage() {
+  const [times, setTimes] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const updateTimes = () => {
+      setTimes(
+        Object.fromEntries(timezones.map((zone) => [zone.label, formatLocalTime(zone.timezone)])),
+      );
+    };
+
+    updateTimes();
+
+    const interval = window.setInterval(updateTimes, 60_000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <motion.main
       variants={container}
       initial="hidden"
       animate="show"
-      className="max-w-160 px-6 py-8"
+      className="mx-auto flex min-h-svh max-w-160 flex-col px-6 py-8"
     >
       <motion.div variants={item} className="flex w-fit items-center gap-10 border-border border-b">
         <h1 className="text-sm">andrés b.r</h1>
@@ -125,8 +157,22 @@ function HomePage() {
           })}
         </div>
       </motion.div>
+      <motion.section variants={item} className="mt-10 max-w-2xl">
+        <p className="text-foreground text-sm leading-7">
+          I'm a web developer with a few years of experience building digital products for the web,
+          working across design, frontend, and the small details that shape how things feel.
+        </p>
+        <p className="mt-4 text-muted-foreground text-sm leading-7">
+          I live between Spain and the Philippines, and right now I'm building{" "}
+          <a href="https://abari.ph/" className="bg-green-50 p-px">
+            abari.ph
+          </a>
+          . I care about making websites feel clear, useful, and easy to use, with enough
+          personality to not feel generic.
+        </p>
+      </motion.section>
       <motion.section variants={item} className="mt-10">
-        <h2 className="mb-4 font-semibold text-muted-foreground text-xs">Projects</h2>
+        <h2 className="mb-4 text-muted-foreground text-sm">Projects</h2>
         <div className="space-y-3">
           {ownThing.map((own) => {
             return (
@@ -151,7 +197,7 @@ function HomePage() {
         </div>
       </motion.section>
       <motion.section variants={item} className="mt-10">
-        <h2 className="mb-4 font-semibold text-muted-foreground text-xs">Past works</h2>
+        <h2 className="mb-4 text-muted-foreground text-sm">Past works</h2>
         <div className="space-y-3">
           {pastWorks.map((work) => {
             return (
@@ -173,6 +219,16 @@ function HomePage() {
               </motion.a>
             );
           })}
+        </div>
+      </motion.section>
+      <motion.section variants={item} className="mt-auto pt-12">
+        <div className="flex flex-wrap items-end justify-end gap-x-6 gap-y-2 text-muted-foreground text-xs">
+          {timezones.map((zone) => (
+            <div key={zone.label} className="flex items-center gap-2">
+              <span>{zone.label}</span>
+              <span>{times[zone.label] ?? "--:--"}</span>
+            </div>
+          ))}
         </div>
       </motion.section>
     </motion.main>

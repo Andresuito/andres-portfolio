@@ -62,7 +62,7 @@ export const personSchema = () => ({
   name: "Andrés B.R",
   jobTitle: "Web Developer",
   description:
-    "Experienced web developer specializing in React, Next.js, and modern web technologies",
+    "Web developer with a few years of experience focused on polished interfaces, web animations, and design-driven frontend work.",
   url: "https://andresbr.com",
   sameAs: [
     "https://github.com/Andresuito",

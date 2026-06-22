@@ -5,7 +5,7 @@ import appCss from "../styles.css?url";
 
 function ErrorComponent({ error }: { error: Error }) {
   return (
-    <div style={{ padding: "20px", fontFamily: '"Geist Mono", monospace' }}>
+    <div style={{ padding: "20px", fontFamily: '"DM Sans", sans-serif' }}>
       <h1>Something went wrong</h1>
       <p>{error.message}</p>
     </div>
@@ -17,7 +17,7 @@ export const Route = createRootRoute({
     const s = seo({
       title: "Andrés b.r",
       description:
-        "Portfolio of Andrés B.R. Currently building anticommon.com and previously worked on vidext.io.",
+        "Portfolio of Andrés B.R, a web developer with a few years of experience focused on polished interfaces, animation, and design-driven frontend work.",
       keywords:
         "Andrés B.R, portfolio, web developer, frontend developer, full stack developer, anticommon, vidext",
     });
@@ -36,7 +36,7 @@ export const Route = createRootRoute({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap",
         },
         { rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

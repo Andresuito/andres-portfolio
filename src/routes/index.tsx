@@ -1,6 +1,5 @@
 import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { seo } from "@/lib/utils/seo";
 
@@ -31,7 +30,7 @@ const ownThing = [
     period: "Now",
   },
   {
-    role: "Founder / Developer",
+    role: "Co-founder",
     company: "anticommon.com",
     href: "https://anticommon.com",
     period: "Now",
@@ -76,30 +75,6 @@ const timezones = [
   { label: "ES", timezone: "Europe/Madrid" },
 ];
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const item = {
-  hidden: {
-    opacity: 0,
-    y: 8,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.35,
-      ease: "easeOut",
-    },
-  },
-};
-
 function formatLocalTime(timezone: string) {
   return new Intl.DateTimeFormat("en-GB", {
     hour: "2-digit",
@@ -127,13 +102,8 @@ function HomePage() {
   }, []);
 
   return (
-    <motion.main
-      variants={container}
-      initial="hidden"
-      animate="show"
-      className="mx-auto flex min-h-svh max-w-160 flex-col px-6 py-8"
-    >
-      <motion.div variants={item} className="flex w-fit items-center gap-10 border-border border-b">
+    <main className="mx-auto flex min-h-svh max-w-160 flex-col px-6 py-8">
+      <div className="flex w-fit items-center gap-10 border-border border-b">
         <h1 className="text-sm">andrés b.r</h1>
 
         <div>
@@ -141,23 +111,21 @@ function HomePage() {
             const Icon = social.icon;
 
             return (
-              <motion.a
+              <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={social.label}
                 className="inline-flex size-8 items-center justify-center rounded-full text-foreground"
-                whileHover={{ y: -1 }}
-                whileTap={{ scale: 0.96 }}
               >
                 <Icon className="size-3" />
-              </motion.a>
+              </a>
             );
           })}
         </div>
-      </motion.div>
-      <motion.section variants={item} className="mt-10 max-w-2xl">
+      </div>
+      <section className="mt-10 max-w-2xl">
         <p className="text-foreground text-sm leading-7">
           I'm a web developer with experience in creating digital products for the web, working
           across design, frontend, and the small details that shape how things feel.
@@ -169,58 +137,52 @@ function HomePage() {
           </a>
           . I care about making websites feel clear, useful, and easy to use.
         </p>
-      </motion.section>
-      <motion.section variants={item} className="mt-10">
+      </section>
+      <section className="mt-10">
         <h2 className="mb-4 text-muted-foreground text-sm">Projects</h2>
         <div className="space-y-3">
           {ownThing.map((own) => {
             return (
-              <motion.a
+              <a
                 key={`${own.company}`}
                 href={own.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 transition-opacity hover:opacity-70"
-                variants={item}
-                whileHover={{ x: 2 }}
-                whileTap={{ scale: 0.99 }}
+                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 hover:opacity-70"
               >
                 <div>
                   <p className="text-sm">{own.company}</p>
                   <p className="text-muted-foreground text-sm">{own.role}</p>
                 </div>
                 <span className="shrink-0 text-muted-foreground text-xs">{own.period}</span>
-              </motion.a>
+              </a>
             );
           })}
         </div>
-      </motion.section>
-      <motion.section variants={item} className="mt-10">
+      </section>
+      <section className="mt-10">
         <h2 className="mb-4 text-muted-foreground text-sm">Past works</h2>
         <div className="space-y-3">
           {pastWorks.map((work) => {
             return (
-              <motion.a
+              <a
                 key={`${work.company}-${work.period}`}
                 href={work.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 transition-opacity hover:opacity-70"
-                variants={item}
-                whileHover={{ x: 2 }}
-                whileTap={{ scale: 0.99 }}
+                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 hover:opacity-70"
               >
                 <div>
                   <p className="text-sm">{work.company}</p>
                   <p className="text-muted-foreground text-sm">{work.role}</p>
                 </div>
                 <span className="shrink-0 text-muted-foreground text-xs">{work.period}</span>
-              </motion.a>
+              </a>
             );
           })}
         </div>
-      </motion.section>
-      <motion.section variants={item} className="mt-auto pt-12">
+      </section>
+      <section className="mt-auto pt-12">
         <div className="flex flex-wrap items-end justify-end gap-x-6 gap-y-2 text-muted-foreground text-xs">
           {timezones.map((zone) => (
             <div key={zone.label} className="flex items-center gap-2">
@@ -229,7 +191,7 @@ function HomePage() {
             </div>
           ))}
         </div>
-      </motion.section>
-    </motion.main>
+      </section>
+    </main>
   );
 }

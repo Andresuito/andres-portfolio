@@ -16,10 +16,10 @@ export function NotFound() {
             className="relative ml-1 inline-block overflow-hidden text-base text-foreground sm:text-lg"
           >
             <div className="relative">
-              <span className="block text-base transition-transform delay-200 duration-500 ease-out group-hover:-translate-y-full sm:text-lg">
+              <span className="block text-base sm:text-lg">
                 Go back home
               </span>
-              <span className="absolute top-0 left-0 translate-y-full text-base transition-transform delay-200 duration-500 ease-out group-hover:translate-y-0 sm:text-lg">
+              <span className="hidden text-base sm:text-lg">
                 Take me home →
               </span>
             </div>

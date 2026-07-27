@@ -15,25 +15,25 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@cloudflare/vite-plugin": "^1.42.1",
-		"@tabler/icons-react": "^3.44.0",
-		"@tailwindcss/vite": "^4.3.1",
-		"@tanstack/react-router": "^1.170.16",
-		"@tanstack/react-start": "^1.168.26",
-		"motion": "^12.40.0",
-		"react": "^19.2.7",
-		"react-dom": "^19.2.7",
-		"tailwindcss": "^4.3.1"
+		"@cloudflare/vite-plugin": "^1.47.0",
+		"@tabler/icons-react": "^3.45.0",
+		"@tailwindcss/vite": "^4.3.3",
+		"@tanstack/react-router": "^1.170.18",
+		"@tanstack/react-start": "^1.168.32",
+		"motion": "^12.42.2",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
+		"tailwindcss": "^4.3.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.0",
-		"@tanstack/devtools-vite": "^0.8.0",
-		"@types/node": "^26.0.0",
+		"@biomejs/biome": "2.5.5",
+		"@tanstack/devtools-vite": "^0.8.3",
+		"@types/node": "^26.1.1",
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
-		"@vitejs/plugin-react": "^6.0.2",
-		"typescript": "^6.0.3",
-		"vite": "^8.0.16",
-		"wrangler": "^4.103.0"
+		"@vitejs/plugin-react": "^6.0.4",
+		"typescript": "^7.0.2",
+		"vite": "^8.1.5",
+		"wrangler": "^4.114.0"
 	}
 }

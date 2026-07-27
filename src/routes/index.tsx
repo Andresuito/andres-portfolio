@@ -148,7 +148,7 @@ function HomePage() {
                 href={own.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 hover:opacity-70"
+                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 last:border-b-0 hover:opacity-70"
               >
                 <div>
                   <p className="text-sm">{own.company}</p>
@@ -170,7 +170,7 @@ function HomePage() {
                 href={work.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 hover:opacity-70"
+                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 last:border-b-0 hover:opacity-70"
               >
                 <div>
                   <p className="text-sm">{work.company}</p>

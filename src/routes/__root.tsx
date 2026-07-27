@@ -5,7 +5,7 @@ import appCss from "../styles.css?url";
 
 function ErrorComponent({ error }: { error: Error }) {
   return (
-    <div style={{ padding: "20px", fontFamily: '"DM Sans", sans-serif' }}>
+    <div style={{ padding: "20px", fontFamily: '"Instrument Sans", sans-serif' }}>
       <h1>Something went wrong</h1>
       <p>{error.message}</p>
     </div>
@@ -36,7 +36,7 @@ export const Route = createRootRoute({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap",
         },
         { rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

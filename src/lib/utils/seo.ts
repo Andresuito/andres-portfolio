@@ -72,6 +72,7 @@ export const personSchema = () => ({
   knowsAbout: [
     "React",
     "Next.js",
+    "TanStack",
     "TypeScript",
     "Web Development",
     "Frontend Development",

@@ -1,13 +1,20 @@
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  createRootRoute,
+  type ErrorComponentProps,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
+
 import { NotFound } from "@/components/not-found";
 import { personSchema, seo } from "@/lib/utils/seo";
+
 import appCss from "../styles.css?url";
 
-function ErrorComponent({ error }: { error: Error }) {
+function ErrorComponent({ error }: ErrorComponentProps) {
   return (
     <div style={{ padding: "20px", fontFamily: '"Instrument Sans", sans-serif' }}>
       <h1>Something went wrong</h1>
-      <p>{error.message}</p>
+      <p>{error instanceof Error ? error.message : "An unexpected error occurred."}</p>
     </div>
   );
 }
@@ -61,7 +68,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
         <script
           type="application/ld+json"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: <is not dangerous>
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>

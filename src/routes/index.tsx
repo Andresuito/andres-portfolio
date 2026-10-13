@@ -1,6 +1,7 @@
 import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+
 import { seo } from "@/lib/utils/seo";
 
 export const Route = createFileRoute("/")({
@@ -103,7 +104,7 @@ function HomePage() {
 
   return (
     <main className="mx-auto flex min-h-svh max-w-160 flex-col px-6 py-8">
-      <div className="flex w-fit items-center gap-10 border-border border-b">
+      <div className="flex w-fit items-center gap-10 border-b border-border">
         <h1 className="text-sm">andrés b.r</h1>
 
         <div>
@@ -126,11 +127,11 @@ function HomePage() {
         </div>
       </div>
       <section className="mt-10 max-w-2xl">
-        <p className="text-foreground text-sm leading-7">
+        <p className="text-sm leading-7 text-foreground">
           I'm a web developer with experience in creating digital products for the web, working
           across design, frontend, and the small details that shape how things feel.
         </p>
-        <p className="mt-4 text-muted-foreground text-sm leading-7">
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">
           Based between Spain and the Philippines, I'm currently building{" "}
           <a href="https://abari.ph/" className="bg-green-50 p-px">
             abari.ph
@@ -139,7 +140,7 @@ function HomePage() {
         </p>
       </section>
       <section className="mt-10">
-        <h2 className="mb-4 text-muted-foreground text-sm">Projects</h2>
+        <h2 className="mb-4 text-sm text-muted-foreground">Projects</h2>
         <div className="space-y-3">
           {ownThing.map((own) => {
             return (
@@ -148,20 +149,20 @@ function HomePage() {
                 href={own.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 last:border-b-0 hover:opacity-70"
+                className="flex items-baseline justify-between gap-4 border-b border-border pb-3 last:border-b-0 hover:opacity-70"
               >
                 <div>
                   <p className="text-sm">{own.company}</p>
-                  <p className="text-muted-foreground text-sm">{own.role}</p>
+                  <p className="text-sm text-muted-foreground">{own.role}</p>
                 </div>
-                <span className="shrink-0 text-muted-foreground text-xs">{own.period}</span>
+                <span className="shrink-0 text-xs text-muted-foreground">{own.period}</span>
               </a>
             );
           })}
         </div>
       </section>
       <section className="mt-10">
-        <h2 className="mb-4 text-muted-foreground text-sm">Past works</h2>
+        <h2 className="mb-4 text-sm text-muted-foreground">Past works</h2>
         <div className="space-y-3">
           {pastWorks.map((work) => {
             return (
@@ -170,20 +171,20 @@ function HomePage() {
                 href={work.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-border border-b pb-3 last:border-b-0 hover:opacity-70"
+                className="flex items-baseline justify-between gap-4 border-b border-border pb-3 last:border-b-0 hover:opacity-70"
               >
                 <div>
                   <p className="text-sm">{work.company}</p>
-                  <p className="text-muted-foreground text-sm">{work.role}</p>
+                  <p className="text-sm text-muted-foreground">{work.role}</p>
                 </div>
-                <span className="shrink-0 text-muted-foreground text-xs">{work.period}</span>
+                <span className="shrink-0 text-xs text-muted-foreground">{work.period}</span>
               </a>
             );
           })}
         </div>
       </section>
       <section className="mt-auto pt-12">
-        <div className="flex flex-wrap items-end justify-end gap-x-6 gap-y-2 text-muted-foreground text-xs">
+        <div className="flex flex-wrap items-end justify-end gap-x-6 gap-y-2 text-xs text-muted-foreground">
           {timezones.map((zone) => (
             <div key={zone.label} className="flex items-center gap-2">
               <span>{zone.label}</span>

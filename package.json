@@ -37,5 +37,14 @@
     "vite-plus": "1.0.0-rc.1",
     "wrangler": "^4.141.0"
   },
-  "packageManager": "pnpm@11.8.0"
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.11.2"
+    }
+  },
+  "engines": {
+    "pnpm": "12.11.2"
+  },
+  "packageManager": "pnpm@12.11.2"
 }

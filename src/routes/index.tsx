@@ -131,7 +131,7 @@ function HomePage() {
           <a href="https://abari.ph/" className="bg-green-50 p-px">
             abari.ph
           </a>
-          . I care about making websites feel clear, useful, and easy to use.
+          .
         </p>
       </section>
       <section className="mt-10">

@@ -1,4 +1,4 @@
-import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
@@ -55,11 +55,6 @@ const pastWorks = [
 
 const socials = [
   {
-    label: "X",
-    href: "https://x.com/andresuiito",
-    icon: IconBrandX,
-  },
-  {
     label: "GitHub",
     href: "https://github.com/Andresuito",
     icon: IconBrandGithub,
@@ -103,7 +98,7 @@ function HomePage() {
   }, []);
 
   return (
-    <main className="mx-auto flex min-h-svh max-w-160 flex-col px-6 py-8">
+    <main className="flex min-h-svh max-w-160 flex-col px-6 py-8">
       <div className="flex w-fit items-center gap-10 border-b border-border">
         <h1 className="text-sm">andrés b.r</h1>
 
@@ -131,8 +126,8 @@ function HomePage() {
           I'm a web developer with experience in creating digital products for the web, working
           across design, frontend, and the small details that shape how things feel.
         </p>
-        <p className="mt-4 text-sm leading-7 text-muted-foreground">
-          Based between Spain and the Philippines, I'm currently building{" "}
+        <p className="mt-4 text-sm leading-7 text-foreground">
+          Based between Spain and the Philippines, I launched{" "}
           <a href="https://abari.ph/" className="bg-green-50 p-px">
             abari.ph
           </a>
@@ -184,7 +179,7 @@ function HomePage() {
         </div>
       </section>
       <section className="mt-auto pt-12">
-        <div className="flex flex-wrap items-end justify-end gap-x-6 gap-y-2 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-end justify-start gap-x-6 gap-y-2 text-xs text-muted-foreground">
           {timezones.map((zone) => (
             <div key={zone.label} className="flex items-center gap-2">
               <span>{zone.label}</span>

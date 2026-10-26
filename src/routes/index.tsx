@@ -98,9 +98,9 @@ function HomePage() {
   }, []);
 
   return (
-    <main className="flex min-h-svh max-w-160 flex-col px-6 py-8">
-      <div className="flex w-fit items-center gap-10 border-b border-border">
-        <h1 className="text-sm">andrés b.r</h1>
+    <main className="portfolio">
+      <div className="portfolio-header">
+        <h1 className="text-small">andrés b.r</h1>
 
         <div>
           {socials.map((social) => {
@@ -113,30 +113,30 @@ function HomePage() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={social.label}
-                className="inline-flex size-8 items-center justify-center rounded-full text-foreground"
+                className="social-link"
               >
-                <Icon className="size-3" />
+                <Icon className="social-icon" />
               </a>
             );
           })}
         </div>
       </div>
-      <section className="mt-10 max-w-2xl">
-        <p className="text-sm leading-7 text-foreground">
+      <section className="intro">
+        <p className="intro-copy">
           I'm a web developer with experience in creating digital products for the web, working
           across design, frontend, and the small details that shape how things feel.
         </p>
-        <p className="mt-4 text-sm leading-7 text-foreground">
+        <p className="intro-copy intro-copy-following">
           Based between Spain and the Philippines, I launched{" "}
-          <a href="https://abari.ph/" className="bg-green-50 p-px">
+          <a href="https://abari.ph/" className="highlight-link">
             abari.ph
           </a>
           .
         </p>
       </section>
-      <section className="mt-10">
-        <h2 className="mb-4 text-sm text-muted-foreground">Projects</h2>
-        <div className="space-y-3">
+      <section className="work-section">
+        <h2 className="section-title">Projects</h2>
+        <div className="work-list">
           {ownThing.map((own) => {
             return (
               <a
@@ -144,21 +144,21 @@ function HomePage() {
                 href={own.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-b border-border pb-3 last:border-b-0 hover:opacity-70"
+                className="work-link"
               >
                 <div>
-                  <p className="text-sm">{own.company}</p>
-                  <p className="text-sm text-muted-foreground">{own.role}</p>
+                  <p className="text-small">{own.company}</p>
+                  <p className="work-role">{own.role}</p>
                 </div>
-                <span className="shrink-0 text-xs text-muted-foreground">{own.period}</span>
+                <span className="work-period">{own.period}</span>
               </a>
             );
           })}
         </div>
       </section>
-      <section className="mt-10">
-        <h2 className="mb-4 text-sm text-muted-foreground">Past works</h2>
-        <div className="space-y-3">
+      <section className="work-section">
+        <h2 className="section-title">Past works</h2>
+        <div className="work-list">
           {pastWorks.map((work) => {
             return (
               <a
@@ -166,22 +166,22 @@ function HomePage() {
                 href={work.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-baseline justify-between gap-4 border-b border-border pb-3 last:border-b-0 hover:opacity-70"
+                className="work-link"
               >
                 <div>
-                  <p className="text-sm">{work.company}</p>
-                  <p className="text-sm text-muted-foreground">{work.role}</p>
+                  <p className="text-small">{work.company}</p>
+                  <p className="work-role">{work.role}</p>
                 </div>
-                <span className="shrink-0 text-xs text-muted-foreground">{work.period}</span>
+                <span className="work-period">{work.period}</span>
               </a>
             );
           })}
         </div>
       </section>
-      <section className="mt-auto pt-12">
-        <div className="flex flex-wrap items-end justify-start gap-x-6 gap-y-2 text-xs text-muted-foreground">
+      <section className="portfolio-footer">
+        <div className="timezones">
           {timezones.map((zone) => (
-            <div key={zone.label} className="flex items-center gap-2">
+            <div key={zone.label} className="timezone">
               <span>{zone.label}</span>
               <span>{times[zone.label] ?? "--:--"}</span>
             </div>

@@ -1,5 +1,4 @@
 import { cloudflare } from "@cloudflare/vite-plugin";
-import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { redact } from "@tanstack/redact/vite";
 import viteReact from "@vitejs/plugin-react";
@@ -36,12 +35,6 @@ const config = defineConfig({
     semi: true,
     singleQuote: false,
     sortImports: true,
-    sortTailwindcss: {
-      stylesheet: "./src/styles.css",
-      functions: ["cn", "clsx", "cva", "tw"],
-      preserveDuplicates: false,
-      preserveWhitespace: false,
-    },
     sortPackageJson: true,
     trailingComma: "all",
     ignorePatterns: [
@@ -63,7 +56,6 @@ const config = defineConfig({
   },
   plugins: [
     cloudflare({ viteEnvironment: { name: "ssr" } }),
-    tailwindcss(),
     tanstackStart(),
     viteReact(),
     redact(),

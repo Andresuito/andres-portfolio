@@ -1,6 +1,8 @@
 # andresbr.com
 
-Personal portfolio built with TanStack Start, React, Tailwind CSS, and Cloudflare Workers.
+Personal portfolio built with TanStack Start, React APIs on the Redact runtime, Tailwind CSS, and Cloudflare Workers.
+
+Redact is integrated through `@tanstack/redact/vite` after the Start and React plugins, with the default feature preset. Server dependencies are bundled with `ssr.noExternal` so their React imports also use Redact. Keep `react` and `react-dom` installed and use normal React imports in application code. See the [TanStack Start integration guide](https://github.com/TanStack/redact/blob/main/docs/start.md).
 
 ```sh
 pnpm install

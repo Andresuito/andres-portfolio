@@ -1,4 +1,4 @@
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+import { IconBrandGithub } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
@@ -58,11 +58,6 @@ const socials = [
     label: "GitHub",
     href: "https://github.com/Andresuito",
     icon: IconBrandGithub,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/andres-br/",
-    icon: IconBrandLinkedin,
   },
 ];
 

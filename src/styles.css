@@ -245,11 +245,12 @@ a {
   position: relative;
 }
 .link-preview {
+  --preview-offset-x: 0px;
+  --preview-offset-y: -50%;
   position: absolute;
   z-index: 100;
   left: calc(100% + 12px);
   top: 50%;
-  translate: 0 -50%;
   width: min(13rem, calc(100vw - 3rem));
   padding: 0.5rem;
   border: 1px solid #1b18140a;
@@ -257,7 +258,8 @@ a {
   background: #fff;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.86) translateX(-5px);
+  transform: translate(var(--preview-offset-x), var(--preview-offset-y)) scale(0.86)
+    translateX(-5px);
   transform-origin: -12px center;
   transition:
     transform 380ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -268,9 +270,10 @@ a {
     0 8px 24px #1b181408;
 }
 .intro-copy .link-preview {
+  --preview-offset-x: -50%;
+  --preview-offset-y: 0px;
   left: 50%;
   top: calc(100% + 12px);
-  translate: -50% 0;
   transform-origin: center -12px;
 }
 .link-preview::before {
@@ -288,7 +291,7 @@ a {
   .preview-link:hover .link-preview {
     opacity: 1;
     visibility: visible;
-    transform: scale(1) translateX(0);
+    transform: translate(var(--preview-offset-x), var(--preview-offset-y)) scale(1) translateX(0);
     transition-delay: 120ms;
   }
 }

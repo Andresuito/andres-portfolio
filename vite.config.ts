@@ -38,10 +38,8 @@ const config = defineConfig({
     sortPackageJson: true,
     trailingComma: "all",
     ignorePatterns: [
-      "**/*.md",
       "**/routeTree.gen.ts",
       "worker-configuration.d.ts",
-      "**/src/styles.css",
       "**/dist/**",
       "**/.wrangler/**",
       "**/.output/**",

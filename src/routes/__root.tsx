@@ -23,8 +23,8 @@ export const Route = createRootRoute({
   head: () => {
     const s = seo({
       title: "Andrés b.r",
-      description:
-        "Portfolio of Andrés B.R, a web developer with a few years of experience focused on polished interfaces, animation, and design-driven frontend work.",
+      url: "https://andresbr.com",
+      description: "I build things for the web.",
       keywords:
         "Andrés B.R, portfolio, web developer, frontend developer, full stack developer, anticommon, vidext",
     });
@@ -46,7 +46,7 @@ export const Route = createRootRoute({
         { rel: "shortcut icon", href: "/favicon.ico" },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
         { rel: "manifest", href: "/site.webmanifest" },
-        ...(s.links || []),
+        ...s.links,
       ],
     };
   },

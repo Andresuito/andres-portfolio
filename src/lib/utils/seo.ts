@@ -2,29 +2,22 @@ export const seo = ({
   title,
   description,
   keywords,
-  image,
   url,
-  type = "website",
-  author = "Andrés B.R",
 }: {
   title: string;
   description?: string;
-  image?: string;
   keywords?: string;
   url?: string;
-  type?: "website" | "article" | "profile";
-  author?: string;
 }) => {
   const siteUrl = "https://andresbr.com";
-  const defaultImage = `${siteUrl}/og.jpg`;
-  const finalImage = image || defaultImage;
+  const finalImage = `${siteUrl}/og.jpg`;
   const finalUrl = url || siteUrl;
 
   const tags = [
     { title },
     { name: "description", content: description },
     { name: "keywords", content: keywords },
-    { name: "author", content: author },
+    { name: "author", content: "Andrés B.R" },
     { name: "robots", content: "index, follow" },
     { name: "googlebot", content: "index, follow" },
     // Twitter
@@ -35,7 +28,7 @@ export const seo = ({
     { name: "twitter:site", content: "@andresuiito" },
     { name: "twitter:image", content: finalImage },
     // Open Graph
-    { name: "og:type", content: type },
+    { name: "og:type", content: "website" },
     { name: "og:title", content: title },
     { name: "og:description", content: description },
     { name: "og:image", content: finalImage },
@@ -61,8 +54,7 @@ export const personSchema = () => ({
   "@type": "Person",
   name: "Andrés B.R",
   jobTitle: "Web Developer",
-  description:
-    "Web developer with a few years of experience focused on polished interfaces, web animations, and design-driven frontend work.",
+  description: "I build things for the web.",
   url: "https://andresbr.com",
   sameAs: [
     "https://github.com/Andresuito",

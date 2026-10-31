@@ -38,6 +38,13 @@ export const Route = createRootRoute({
       ],
       links: [
         {
+          rel: "preload",
+          href: "/fonts/Onest-Variable.ttf",
+          as: "font",
+          type: "font/ttf",
+          crossOrigin: "anonymous",
+        },
+        {
           rel: "stylesheet",
           href: appCss,
         },

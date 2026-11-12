@@ -99,10 +99,6 @@ function HomePage() {
         </div>
       </div>
       <section className="intro">
-        <p className="intro-copy">
-          I'm a web developer with experience in creating digital products for the web, working
-          across design, frontend, and the small details that shape how things feel.
-        </p>
         <p className="intro-copy intro-copy-following">
           Based between Spain and the Philippines, I launched{" "}
           <PreviewLink href="https://abari.ph/" className="highlight-link">
